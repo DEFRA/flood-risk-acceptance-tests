@@ -6,6 +6,52 @@ You may need an environmental permit if you want to work in, over, under or near
 
 This project contains the acceptance tests for the service. It is built around [Quke](https://github.com/EnvironmentAgency/quke), a Ruby gem that simplifies the process of writing and running Cucumber acceptance tests.
 
+## Pre-requisites
+
+This project is setup to run against version 2.3.1 of Ruby.
+
+The rest of the pre-requisites are the same as those for [Quke](https://github.com/EnvironmentAgency/quke#pre-requisites).
+
+## Installation
+
+First clone the repository and then drop into your new local repo
+
+```bash
+git clone https://github.com/EnvironmentAgency/flood-risk-acceptance-tests.git && cd flood-risk-acceptance-tests
+```
+
+Next download and install the dependencies
+
+```bash
+bundle install
+```
+
+## Configuration
+
+You can figure how the project runs using [Quke config files](https://github.com/EnvironmentAgency/quke#configuration). Before executing this project for the first time you'll need to create an initial `.config.yml` file.
+
+```bash
+touch .config.yml
+```
+
+Into that file you'll need to add the `app_host:` entry, with the url of the FRAE environment you wish to test against.
+
+If left as that by default when **Quke** is executed it will run against your selected environment using the headless browser **PhantomJS**.
+
+## Execution
+
+Simply call
+
+```bash
+bundle exec quke
+```
+
+You can create [multiple config files](https://github.com/EnvironmentAgency/quke#multiple-configs), for example you may wish to have one setup for running against **Chrome**, and another to run against a different environment. You can tell **Quke** which config file to use by adding an environment variable argument to the command.
+
+```bash
+QUKE_CONFIG='chrome.config.yml' bundle exec quke
+```
+
 ## Contributing to this project
 
 If you have an idea you'd like to contribute please log an issue.
