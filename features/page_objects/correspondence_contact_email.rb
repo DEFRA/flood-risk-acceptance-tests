@@ -1,5 +1,5 @@
-# Correspondence contact email page
 class CorrespondenceContactEmailPage < SitePrism::Page
+
   element(:email, "input[id='correspondence_contact_email_email_address']")
   element(:confirm_email, "input[id='correspondence_contact_email_email_address_confirmation']")
 
@@ -11,4 +11,5 @@ class CorrespondenceContactEmailPage < SitePrism::Page
 
     submit_button.click
   end
+
 end

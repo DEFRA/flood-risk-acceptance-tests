@@ -2,6 +2,7 @@
 # create individual instances of each page throughout the steps.
 # https://github.com/natritmeyer/site_prism#epilogue
 class App
+
   # Using an attr_reader automatically gives us a my_app.last_page method
   attr_reader :last_page
 
@@ -79,4 +80,5 @@ class App
   def confirmation_page
     @last_page = ConfirmationPage.new
   end
+
 end

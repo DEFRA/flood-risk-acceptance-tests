@@ -1,5 +1,5 @@
-# Address page
 class AddressPage < SitePrism::Page
+
   element(:show_list, "input[id='address_match_selection']")
   element(:results_dropdown, 'select#address_match_selection')
 
@@ -10,7 +10,6 @@ class AddressPage < SitePrism::Page
 
   element(:submit_button, "input[name='commit']")
 
-  # rubocop:disable Metrics/AbcSize
   def submit(args = {})
     results_dropdown.select(args[:result]) if args.key?(:result)
 
@@ -21,5 +20,5 @@ class AddressPage < SitePrism::Page
 
     submit_button.click
   end
-  # rubocop:enable Metrics/AbcSize
+
 end

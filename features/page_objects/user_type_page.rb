@@ -1,5 +1,5 @@
-# User type page
 class UserTypePage < SitePrism::Page
+
   elements(:org_types, "input[name='user_type[org_type]']")
 
   element(:submit_button, "input[name='commit']")
@@ -11,4 +11,5 @@ class UserTypePage < SitePrism::Page
 
     submit_button.click
   end
+
 end

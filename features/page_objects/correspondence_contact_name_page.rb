@@ -1,5 +1,5 @@
-# Correspondence contact name page
 class CorrespondenceContactNamePage < SitePrism::Page
+
   element(:full_name, "input[name='correspondence_contact_name[full_name]']")
   element(:position, "input[name='correspondence_contact_name[position]']")
 
@@ -11,4 +11,5 @@ class CorrespondenceContactNamePage < SitePrism::Page
 
     submit_button.click
   end
+
 end
