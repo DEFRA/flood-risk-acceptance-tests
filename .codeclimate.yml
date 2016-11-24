@@ -9,7 +9,10 @@ engines:
 ratings:
   paths:
     - features/page_objects/**.rb
-    - Gemfile.lock
 
 exclude_paths:
-  - features/
+  - features/step_definitions/
+  - "**.feature"
+  - Gemfile.lock
+  - LICENSE
+  - "**.md"
