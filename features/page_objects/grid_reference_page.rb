@@ -1,5 +1,5 @@
-# Grid reference page
 class GridReferencePage < SitePrism::Page
+
   element(:grid_reference, "input[id='grid_reference_grid_reference']")
   element(:description, "textarea[name='grid_reference[description]']")
   element(:dredging_length, "input[id='grid_reference_dredging_length']")
@@ -12,4 +12,5 @@ class GridReferencePage < SitePrism::Page
 
     submit_button.click
   end
+
 end

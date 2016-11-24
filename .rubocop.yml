@@ -8,8 +8,40 @@ AllCops:
   # investigating what the fix may be.
   DisplayStyleGuide: true
 
-# Due to the nature of some tests, the line are often longer than 80 characters
-# however it would be less readable if we were to try and make them meet the 80
-# char limit
+# When using Ruby >= 2.3, Rubocop wants to add a comment to the top of *.rb
+# to aid migration to frozen literals in Ruby 3.0. We are not interested in
+# modifying every file at this point, so this cop is disabled for now.
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# As long as the team commit to using well named classes it should not be
+# necessary to add top-level class documentation.
+Style/Documentation:
+  Enabled: false
+
+# We believe it looks cluttered/ugly not having the ability to add whitespace
+# between for example the class declaration and first method.
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+# We believe the default 80 characters is too restrictive and that lines can
+# still be readable and maintainable when no more than 120 characters. This also
+# allows us to maximise our screen space.
 Metrics/LineLength:
   Max: 120
+
+# We felt as a team that the default size of 15 was too low, and blocked what to
+# us are sound methods which would not add any value if broken up. In this
+# project we've agreed to up this to 30.
+Metrics/AbcSize:
+  Max: 30
+
+# We felt as a team that the default size of 6 was too low, and blocked what to
+# us are sound methods which would not add any value if broken up. In this
+# project we've agreed to up this to 7.
+Metrics/CyclomaticComplexity:
+  Max: 7

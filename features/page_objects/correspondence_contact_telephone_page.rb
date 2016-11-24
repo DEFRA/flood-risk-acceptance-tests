@@ -1,5 +1,5 @@
-# Correspondence contact telephone page
 class CorrespondenceContactTelephonePage < SitePrism::Page
+
   element(
     :telephone_number,
     "input[name='correspondence_contact_telephone[telephone_number]']"
@@ -12,4 +12,5 @@ class CorrespondenceContactTelephonePage < SitePrism::Page
 
     submit_button.click
   end
+
 end

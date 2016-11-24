@@ -1,5 +1,5 @@
-# Email someone else email page
 class EmailSomeoneElsePage < SitePrism::Page
+
   element(:email, "input[id='email_someone_else_email_address']")
   element(:confirm_email, "input[id='email_someone_else_email_address_confirmation']")
 
@@ -11,4 +11,5 @@ class EmailSomeoneElsePage < SitePrism::Page
 
     submit_button.click
   end
+
 end

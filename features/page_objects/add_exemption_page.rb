@@ -1,5 +1,5 @@
-# Add exemption page
 class AddExemptionPage < SitePrism::Page
+
   elements(:exemptions, "input[name='add_exemptions[exemption_ids]']")
   elements(:exemption_label, "div[label='check box']")
 
@@ -12,4 +12,5 @@ class AddExemptionPage < SitePrism::Page
 
     submit_button.click
   end
+
 end

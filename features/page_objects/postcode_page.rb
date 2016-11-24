@@ -1,5 +1,5 @@
-# Address page
 class PostCodePage < SitePrism::Page
+
   element(:local_authority_postcode, "input[id='local_authority_postcode_postcode']")
   element(:limited_company_postcode, "input[id='limited_company_postcode_postcode']")
   element(:llp_postcode, "input[id='limited_liability_partnership_postcode_postcode']")
@@ -9,8 +9,6 @@ class PostCodePage < SitePrism::Page
 
   element(:submit_button, "input[name='commit']")
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/CyclomaticComplexity
   def submit(args = {})
     local_authority_postcode.set(args[:local_authority_postcode]) if args.key?(:local_authority_postcode)
     limited_company_postcode.set(args[:limited_company_postcode]) if args.key?(:limited_company_postcode)
@@ -21,6 +19,5 @@ class PostCodePage < SitePrism::Page
 
     submit_button.click
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/CyclomaticComplexity
+
 end

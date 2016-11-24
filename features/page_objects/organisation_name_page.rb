@@ -1,5 +1,5 @@
-# Organisation name page
 class OrganisationNamePage < SitePrism::Page
+
   element(:local_authority_name, "input[id='local_authority_name']")
   element(:limited_company_name, "input[id='limited_company_name_name']")
   element(:llp_name, "input[id='limited_liability_partnership_name_name']")
@@ -9,8 +9,6 @@ class OrganisationNamePage < SitePrism::Page
 
   element(:submit_button, "input[name='commit']")
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/CyclomaticComplexity
   def submit(args = {})
     local_authority_name.set(args[:local_authority_name]) if args.key?(:local_authority_name)
     limited_company_name.set(args[:limited_company_name]) if args.key?(:limited_company_name)
@@ -21,6 +19,5 @@ class OrganisationNamePage < SitePrism::Page
 
     submit_button.click
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/CyclomaticComplexity
+
 end
