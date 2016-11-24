@@ -1,0 +1,15 @@
+engines:
+  bundler-audit:
+    enabled: true
+  rubocop:
+    enabled: true
+  fixme:
+    enabled: true
+
+ratings:
+  paths:
+    - features/page_objects/**.rb
+    - Gemfile.lock
+
+exclude_paths:
+  - features/
