@@ -1,5 +1,10 @@
 # Flood risk acceptance tests
 
+[![Build Status](https://travis-ci.org/EnvironmentAgency/flood-risk-acceptance-tests.svg?branch=master)](https://travis-ci.org/EnvironmentAgency/flood-risk-acceptance-tests)
+[![security](https://hakiri.io/github/EnvironmentAgency/flood-risk-acceptance-tests/master.svg)](https://hakiri.io/github/EnvironmentAgency/flood-risk-acceptance-tests/master)
+[![Code Climate](https://codeclimate.com/github/EnvironmentAgency/flood-risk-acceptance-tests/badges/gpa.svg)](https://codeclimate.com/github/EnvironmentAgency/flood-risk-acceptance-tests)
+[![Dependency Status](https://dependencyci.com/github/EnvironmentAgency/flood-risk-acceptance-tests/badge)](https://dependencyci.com/github/EnvironmentAgency/flood-risk-acceptance-tests)
+
 You may need an environmental permit if you want to work in, over, under or near a main river or flood or sea defence. Some flood risk activities are exempt from needing a permit and you can carry out the work if you [register an exemption](https://www.gov.uk/guidance/register-your-flood-risk-exemption-environmental-permits).
 
 [Register a flood risk activity exemption](https://register-flood-risk-exemption.service.gov.uk/) is the digital service which allows users to register an exemption.
