@@ -31,6 +31,12 @@ class App
     @last_page = UserTypePage.new
   end
 
+  # /steps/limited_company_number
+  # /steps/limited_liability_partnership_number
+  def registration_number_page
+    @last_page = RegistrationNumberPage.new
+  end
+
   # /steps/individual_name
   def organisation_name_page
     @last_page = OrganisationNamePage.new
