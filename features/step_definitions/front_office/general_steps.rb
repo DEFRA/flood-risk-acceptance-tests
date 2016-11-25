@@ -21,6 +21,29 @@ Given(/^I select exemption FRA(\d+)$/) do |code|
   expect(page).to have_content("FRA#{code}")
 end
 
+Then(/^I will be asked to give the approximate length of dredging planned$/) do
+  # The previous step is assumed to be 'I select exemption FRA#' which does not
+  # click the submit button, hence its the first action we have to take here.
+  @app.check_exemptions_page.submit_button.click
+
+  expect(@app.grid_reference_page.dredging_length).not_to be_nil
+end
+
+# rubocop:disable Lint/HandleExceptions
+Then(/^I will NOT be asked to give the approximate length of dredging planned$/) do
+  # The previous step is assumed to be 'I select exemption FRA#' which does not
+  # click the submit button, hence its the first action we have to take here.
+  @app.check_exemptions_page.submit_button.click
+
+  begin
+    expect(@app.grid_reference_page.dredging_length).to raise_error Capybara::ElementNotFound
+  rescue StandardError
+    # We do nothing with the error. We just don't want it to bubble up as
+    # a failure.
+  end
+end
+# rubocop:enable Lint/HandleExceptions
+
 Given(/^I then opt to change FRA(\d+)$/) do |code|
   # We can get away with just selecting the first link because currently you can
   # only select one exemption so there will only ever be one link
