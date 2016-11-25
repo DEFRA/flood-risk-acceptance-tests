@@ -1,7 +1,7 @@
 class OrganisationNamePage < SitePrism::Page
 
   element(:local_authority_name, "input[id='local_authority_name']")
-  element(:limited_company_name, "input[id='limited_company_name_name']")
+  element(:ltd_company_name, "input[id='limited_company_name_name']")
   element(:llp_name, "input[id='limited_liability_partnership_name_name']")
   element(:other_name, "input[id='other_name']")
   element(:partnership_full_name, "input[id='partnership_full_name']")
@@ -11,7 +11,7 @@ class OrganisationNamePage < SitePrism::Page
 
   def submit(args = {})
     local_authority_name.set(args[:local_authority_name]) if args.key?(:local_authority_name)
-    limited_company_name.set(args[:limited_company_name]) if args.key?(:limited_company_name)
+    ltd_company_name.set(args[:ltd_company_name]) if args.key?(:ltd_company_name)
     llp_name.set(args[:llp_name]) if args.key?(:llp_name)
     other_name.set(args[:other_name]) if args.key?(:other_name)
     partnership_full_name.set(args[:partnership_full_name]) if args.key?(:partnership_full_name)
