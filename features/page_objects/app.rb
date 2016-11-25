@@ -37,7 +37,12 @@ class App
     @last_page = RegistrationNumberPage.new
   end
 
+  # /steps/local_authority
+  # /steps/limited_company_name
+  # /steps/limited_liability_partnership_name
   # /steps/individual_name
+  # /steps/partnership
+  # /steps/other
   def organisation_name_page
     @last_page = OrganisationNamePage.new
   end
@@ -50,6 +55,11 @@ class App
   # /steps/individual_address
   def address_page
     @last_page = AddressPage.new
+  end
+
+  # /steps/partnership_details
+  def partnership_details_page
+    @last_page = PartnershipPage.new
   end
 
   # /steps/correspondence_contact_name
