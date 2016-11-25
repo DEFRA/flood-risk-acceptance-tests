@@ -15,6 +15,24 @@ Given(/^I register exemption FRA(\d+)$/) do |id|
   )
 end
 
+Given(/^I select exemption FRA(\d+)$/) do |code|
+  @app.add_exemption_page.submit(exemption: "FRA#{code}")
+
+  expect(page).to have_content("FRA#{code}")
+end
+
+Given(/^I then opt to change FRA(\d+)$/) do |code|
+  # We can get away with just selecting the first link because currently you can
+  # only select one exemption so there will only ever be one link
+  @app.check_exemptions_page.remove_links.first.click
+
+  expect(@app.add_exemption_page.exemption_checked?("FRA#{code}")).to be false
+end
+
+Then(/^I will be taken back to the add exemptions page$/) do
+  expect(page).to have_content 'Select the exemption you want to register'
+end
+
 When(/^I confirm my registration$/) do
   @app.declaration_page.declaration_button.click
 end
