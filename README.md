@@ -57,6 +57,43 @@ You can create [multiple config files](https://github.com/EnvironmentAgency/quke
 QUKE_CONFIG='chrome.config.yml' bundle exec quke
 ```
 
+## Use of tags
+
+[Cucumber](https://cucumber.io/) has an inbuilt feature called [tags](https://github.com/cucumber/cucumber/wiki/Tags).
+
+These can be added to a [feature](https://github.com/cucumber/cucumber/wiki/Feature-Introduction) or individual **scenarios**.
+
+```gherkin
+@functional
+Feature: Validations within the digital service
+```
+
+```gherkin
+@frontoffice @happypath
+Scenario: Registration by an individual
+```
+
+When applied you then have the ability to filter which tests will be used during any given run
+
+```bash
+bundle exec quke --tags @frontoffice # Run only things tagged with this
+bundle exec quke --tags @frontoffice,@happypath # Run all things with these tags
+bundle exec quke --tags ~@functional # Don't run anything with this tag (run everything else)
+```
+
+### In this project
+
+To have consistency across the project the following tags are defined and should be used in the following ways
+
+|Tag|Description|
+|---|---|
+|@frontoffice|Any feature or scenario expected to be run against the front office application|
+|@happypath|A scenario which details a complete registration with no errors|
+|@functional|Any feature or scenario which is testing just a specific function of the service e.g. validation errors|
+|@ci|A feature that is intended to be run only on our continuous integration service (you should never need to use this tag).|
+
+It's also common practice to use a custom tag whilst working on a new feature or scenario e.g. `@focus` or `@wip`. That is perfectly acceptable but please ensure they are removed before your change is merged.
+
 ## Contributing to this project
 
 If you have an idea you'd like to contribute please log an issue.

@@ -1,3 +1,4 @@
+@functional
 Feature: Validations within the digital service
   As a user
   I want to know that if I make a mistake
