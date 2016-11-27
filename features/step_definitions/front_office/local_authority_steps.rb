@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/BlockLength
 Given(/^I am a local authority$/) do
   # User type page
   @app.user_type_page.submit(org_type: 'local_authority')
@@ -37,15 +36,6 @@ Given(/^I am a local authority$/) do
     confirm_email: 'tim.stone.ea+1@gmail.com'
   )
 
-  # Check your answers page
-  expect(page).to have_content 'Footbridge over a main river not more than 8 metres wide from bank to bank'
-  expect(page).to have_content 'tim.stone.ea@gmail.com'
-  expect(page).to have_content 'Joe Bloggs'
-  expect(page).to have_content 'ST 58132 72695'
-  expect(page).to have_content 'Testminster council'
-  expect(page).to have_content 'HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
-  expect(page).to have_content 'Local authority or public body'
   @app.check_your_answers_page.submit_button.click
 
 end
-# rubocop:enable Metrics/BlockLength

@@ -3,10 +3,10 @@ Given(/^I am an external user$/) do
   @app.front_office_home_page.load
 end
 
-Given(/^I register exemption FRA(\d+)$/) do |id|
-  @app.add_exemption_page.submit(exemption: "FRA#{id}")
+Given(/^I register exemption FRA(\d+)$/) do |code|
+  @app.add_exemption_page.submit(exemption: "FRA#{code}")
 
-  expect(page).to have_content("FRA#{id}")
+  expect(page).to have_content("FRA#{code}")
   @app.check_exemptions_page.submit_button.click
 
   @app.grid_reference_page.submit(
