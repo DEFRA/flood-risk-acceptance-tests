@@ -27,6 +27,26 @@ Given(/^I select exemption FRA(\d+)$/) do |code|
 
 end
 
+When(/^I select exemption FRA(\d+) as a "([^"]*)"$/) do |code, org_type|
+
+  # Add exemption page
+  @app.add_exemption_page.submit(exemption: "FRA#{code}")
+
+  # Check exemptions page
+  expect(page).to have_content("FRA#{code}")
+  @app.check_exemptions_page.submit_button.click
+
+  # Grid reference page
+  @app.grid_reference_page.submit(
+    grid_reference: 'ST 58132 72695',
+    description: 'Location of activity'
+  )
+
+  # User type page
+  @app.user_type_page.submit(org_type: org_type)
+
+end
+
 Then(/^I will be asked to give the approximate length of dredging planned$/) do
 
   # The previous step is assumed to be 'I select exemption FRA#' which does not
