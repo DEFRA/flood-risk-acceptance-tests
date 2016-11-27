@@ -7,8 +7,10 @@ Feature: Partnership specific functionality
 
   @frontoffice
   Scenario: Add 3 partners then remove one
-    Given I am an external user
-      And I select exemption FRA17
-      And add 3 partners
-      But then remove one
-     Then I will just see the remaining 2 partners
+  Given I am an external user
+   When I select exemption FRA17 as a "partnership"
+    And add "Steve Rogers" as the first partner
+    And add "Bruce Banner" as a partner
+    And add "Tony Stark" as a partner
+    But then remove "Bruce Banner" from the partners list
+   Then I will just see the remaining 2 partners

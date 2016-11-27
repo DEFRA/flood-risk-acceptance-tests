@@ -1,4 +1,4 @@
-@functional @focus
+@functional
 Feature: The 'Check your answers' page
   As a user
   I want to see the details I've entered

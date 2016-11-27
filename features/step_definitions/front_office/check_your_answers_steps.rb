@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/BlockLength
 And(/^complete the remaining steps as an individual$/) do
 
   # Organisation name page
@@ -33,7 +32,6 @@ And(/^complete the remaining steps as an individual$/) do
   @app.email_someone_else_page.submit_button.click
 
 end
-# rubocop:enable Metrics/BlockLength
 
 Then(/^I will see all the details I entered as an individual$/) do
 
