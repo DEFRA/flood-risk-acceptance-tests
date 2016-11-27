@@ -46,15 +46,13 @@ When(/^I select exemption FRA2 as an individual$/) do
   )
 
   # Email someone else page
-  @app.email_someone_else_page.submit(
-    email: 'tim.stone.ea+1@gmail.com',
-    confirm_email: 'tim.stone.ea+1@gmail.com'
-  )
+  @app.email_someone_else_page.submit_button.click
 
 end
 # rubocop:enable Metrics/BlockLength
 
 Then(/^I will see all the details I entered as an individual$/) do
+
   # Check your answers page
   expect(page).to have_content 'Electrical cable service crossing over a main river'
   expect(page).to have_content 'ST 58132 72695'
@@ -65,4 +63,41 @@ Then(/^I will see all the details I entered as an individual$/) do
   expect(page).to have_content 'Napoleon Solo (Owner)'
   expect(page).to have_content '01234567899'
   expect(page).to have_content 'tim.stone.ea@gmail.com'
+
+end
+
+When(/^I select exemption FRA2 as a partnership$/) do
+
+  # Add exemption page
+  @app.add_exemption_page.submit(exemption: 'FRA2')
+
+  # Check exemptions page
+  expect(page).to have_content('FRA2')
+  @app.check_exemptions_page.submit_button.click
+
+  # Grid reference page
+  @app.grid_reference_page.submit(
+    grid_reference: 'ST 58132 72695',
+    description: 'Location of activity'
+  )
+
+  # User type page
+  @app.user_type_page.submit(org_type: 'partnership')
+
+end
+
+Then(/^I will see all the details I entered as a partnership$/) do
+
+  # Check your answers page
+  expect(page).to have_content 'Electrical cable service crossing over a main river'
+  expect(page).to have_content 'ST 58132 72695'
+  expect(page).to have_content 'Location of activity'
+  expect(page).to have_content 'Partnership'
+  expect(page).to have_content 'Steve Rogers, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
+  expect(page).to have_content 'Bruce Banner, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
+  expect(page).to have_content 'Tony Stark, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
+  expect(page).to have_content 'Nick Fury (Project Manager)'
+  expect(page).to have_content '01234567899'
+  expect(page).to have_content 'tim.stone.ea@gmail.com'
+
 end

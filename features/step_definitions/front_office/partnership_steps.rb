@@ -64,7 +64,67 @@ Given(/^I am a partnership$/) do
 end
 # rubocop:enable Metrics/BlockLength
 
+And(/^add "([^"]*)" as the first partner$/) do |name|
+
+  # Organisation name page
+  @app.organisation_name_page.submit(partnership_full_name: name)
+
+  # Postcode page
+  @app.postcode_page.submit(partnership_postcode: 'BS1 5AH')
+
+  # Address page - select address from post code lookup list
+  @app.address_page.submit(
+    result: 'ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
+  )
+
+end
+
+And(/^add "([^"]*)" as a partner$/) do |name|
+
+  # Partnership details page
+  @app.partnership_details_page.add_partner_link.click
+
+  # Organisation name page
+  @app.organisation_name_page.submit(partnership_full_name: name)
+
+  # Postcode page
+  # We can just click submit because the page pre-populates the postcode lookup
+  # field with the previously entered postcode
+  @app.postcode_page.submit_button.click
+
+  # Address page - select address from post code lookup list
+  @app.address_page.submit(
+    result: 'ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
+  )
+
+end
+
+And(/^add "([^"]*)" as the last partner$/) do |name|
+
+  # Partnership details page
+  @app.partnership_details_page.add_partner_link.click
+
+  # Organisation name page
+  @app.organisation_name_page.submit(partnership_full_name: name)
+
+  # Postcode page
+  # We can just click submit because the page pre-populates the postcode lookup
+  # field with the previously entered postcode
+  @app.postcode_page.submit_button.click
+
+  # Address page - select address from post code lookup list
+  @app.address_page.submit(
+    result: 'ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
+  )
+
+  # Partnership details page
+  # The continue button should now be visible
+  @app.partnership_details_page.submit_button.click
+
+end
+
 And(/^add 3 partners$/) do
+
   # The previous step is assumed to be 'I select exemption FRA#' which does not
   # click the submit button, hence its the first action we have to take here.
   @app.check_exemptions_page.submit_button.click
@@ -127,9 +187,11 @@ And(/^add 3 partners$/) do
   @app.address_page.submit(
     result: 'ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
   )
+
 end
 
 Given(/^then remove one$/) do
+
   # Capybara now has built in support for accepting dialog boxes (without
   # needing to extra driver specific code or explicit waits). Simply wrap the
   # code which causes the dialog with page.accept_confirm. In essence you are
@@ -139,6 +201,7 @@ Given(/^then remove one$/) do
   page.accept_confirm do
     @app.partnership_details_page.remove_links.last.click
   end
+
 end
 
 Then(/^I will just see the remaining 2 partners$/) do
