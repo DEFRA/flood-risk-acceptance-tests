@@ -64,23 +64,10 @@ Given(/^I am a partnership$/) do
 end
 # rubocop:enable Metrics/BlockLength
 
-And(/^add 3 partners$/) do
-  # The previous step is assumed to be 'I select exemption FRA#' which does not
-  # click the submit button, hence its the first action we have to take here.
-  @app.check_exemptions_page.submit_button.click
+And(/^add "([^"]*)" as the first partner$/) do |name|
 
-  # Grid reference page
-  @app.grid_reference_page.submit(
-    grid_reference: 'ST 58132 72695',
-    description: 'Location of activity'
-  )
-
-  # User type page
-  @app.user_type_page.submit(org_type: 'partnership')
-
-  # 1ST PARTNER
   # Organisation name page
-  @app.organisation_name_page.submit(partnership_full_name: 'Mickey Mouse')
+  @app.organisation_name_page.submit(partnership_full_name: name)
 
   # Postcode page
   @app.postcode_page.submit(partnership_postcode: 'BS1 5AH')
@@ -90,46 +77,54 @@ And(/^add 3 partners$/) do
     result: 'ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
   )
 
-  # 2ND PARTNER
-  # Partnership details page
-  # There is no continue button the first time through as you have to have 2
-  # partners as a minimum
-  @app.partnership_details_page.add_partner_link.click
-
-  # Organisation name page
-  @app.organisation_name_page.submit(partnership_full_name: 'Minnie Mouse')
-
-  # Postcode page
-  # We can just click submit because the page pre-populates the postcode lookup
-  # field with the previously entered postcode
-  @app.postcode_page.submit_button.click
-
-  # Address page - select address from post code lookup list
-  @app.address_page.submit(
-    result: 'ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
-  )
-
-  # 3RD PARTNER
-  # Partnership details page - again!
-  # There is no continue button the first time through as you have to have 2
-  # partners as a minimum
-  @app.partnership_details_page.add_partner_link.click
-
-  # Organisation name page
-  @app.organisation_name_page.submit(partnership_full_name: 'Daffy Duck')
-
-  # Postcode page
-  # We can just click submit because the page pre-populates the postcode lookup
-  # field with the previously entered postcode
-  @app.postcode_page.submit_button.click
-
-  # Address page - select address from post code lookup list
-  @app.address_page.submit(
-    result: 'ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
-  )
 end
 
-Given(/^then remove one$/) do
+And(/^add "([^"]*)" as a partner$/) do |name|
+
+  # Partnership details page
+  @app.partnership_details_page.add_partner_link.click
+
+  # Organisation name page
+  @app.organisation_name_page.submit(partnership_full_name: name)
+
+  # Postcode page
+  # We can just click submit because the page pre-populates the postcode lookup
+  # field with the previously entered postcode
+  @app.postcode_page.submit_button.click
+
+  # Address page - select address from post code lookup list
+  @app.address_page.submit(
+    result: 'ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
+  )
+
+end
+
+And(/^add "([^"]*)" as the last partner$/) do |name|
+
+  # Partnership details page
+  @app.partnership_details_page.add_partner_link.click
+
+  # Organisation name page
+  @app.organisation_name_page.submit(partnership_full_name: name)
+
+  # Postcode page
+  # We can just click submit because the page pre-populates the postcode lookup
+  # field with the previously entered postcode
+  @app.postcode_page.submit_button.click
+
+  # Address page - select address from post code lookup list
+  @app.address_page.submit(
+    result: 'ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH'
+  )
+
+  # Partnership details page
+  # The continue button should now be visible
+  @app.partnership_details_page.submit_button.click
+
+end
+
+But(/^then remove "([^"]*)" from the partners list$/) do |name|
+
   # Capybara now has built in support for accepting dialog boxes (without
   # needing to extra driver specific code or explicit waits). Simply wrap the
   # code which causes the dialog with page.accept_confirm. In essence you are
@@ -137,10 +132,15 @@ Given(/^then remove one$/) do
   # http://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession%3Aaccept_confirm
   # http://stackoverflow.com/a/26348968/6117745
   page.accept_confirm do
-    @app.partnership_details_page.remove_links.last.click
+    @app.partnership_details_page.remove_link(name).click
   end
+
 end
 
 Then(/^I will just see the remaining 2 partners$/) do
+
   expect(@app.partnership_details_page.remove_links.length).to eq(2)
+  expect(page).to have_content('Steve Rogers')
+  expect(page).to have_content('Tony Stark')
+
 end
