@@ -105,6 +105,11 @@ class App
     @last_page = BackOfficeHomePage.new
   end
 
+  # / (when not signed in)
+  def login_page
+    @last_page = LoginPage.new
+  end
+
   # / (once signed in)
   def search_page
     @last_page = SearchPage.new
