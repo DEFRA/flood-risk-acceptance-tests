@@ -14,8 +14,8 @@ class BackOfficeHomePage < SitePrism::Page
     # insenstive). In both cases we replace that the prefix above.
     admin_url = if host_url =~ %r{https://}i
                   host_url.gsub(%r{https://}i, prefix)
-                elsif host_url =~ %r{https://}i
-                  host_url.gsub(%r{https://}i, prefix)
+                elsif host_url =~ %r{http://}i
+                  host_url.gsub(%r{http://}i, prefix)
                 end
     admin_url
   end
