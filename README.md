@@ -88,6 +88,7 @@ To have consistency across the project the following tags are defined and should
 |Tag|Description|
 |---|---|
 |@frontoffice|Any feature or scenario expected to be run against the front office application|
+|@backoffice|Any feature or scenario expected to be run against the back office application|
 |@happypath|A scenario which details a complete registration with no errors|
 |@functional|Any feature or scenario which is testing just a specific function of the service e.g. validation errors|
 |@ci|A feature that is intended to be run only on our continuous integration service (you should never need to use this tag).|

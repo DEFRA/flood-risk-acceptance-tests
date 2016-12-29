@@ -5,6 +5,20 @@ Given(/^I am an external user$/) do
 
 end
 
+Given(/^I am an internal user$/) do
+
+  @app = App.new
+  @app.back_office_home_page.load
+
+end
+
+Given(/^I am an unknown user$/) do
+
+  @app = App.new
+  @app.back_office_home_page.load
+
+end
+
 Given(/^I register exemption FRA(\d+)$/) do |code|
 
   @app.add_exemption_page.submit(exemption: "FRA#{code}")
