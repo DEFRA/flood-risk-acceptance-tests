@@ -11,7 +11,7 @@ class PartnershipPage < SitePrism::Page
   # Ref: actual content of data-confirm atttribute would be
   # 'Are you sure you wish to remove Jane Smith?'
   def remove_link(name)
-    remove_links.detect { |link| link['data-confirm'].include?(name) }
+    remove_links.detect { |link| link["data-confirm"].include?(name) }
   end
 
 end

@@ -1,7 +1,7 @@
 class AddressPage < SitePrism::Page
 
   element(:show_list, "input[id='address_match_selection']")
-  element(:results_dropdown, 'select#address_match_selection')
+  element(:results_dropdown, "select#address_match_selection")
 
   element(:address_premises, "input[id='address_premises']")
   element(:street_address, "input[id='address_street_address']")

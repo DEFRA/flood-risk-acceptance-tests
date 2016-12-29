@@ -27,8 +27,8 @@ Given(/^I register exemption FRA(\d+)$/) do |code|
   @app.check_exemptions_page.submit_button.click
 
   @app.grid_reference_page.submit(
-    grid_reference: 'ST 58132 72695',
-    description: 'Location of activity'
+    grid_reference: "ST 58132 72695",
+    description: "Location of activity"
   )
 
 end
@@ -52,8 +52,8 @@ When(/^I select exemption FRA(\d+) as a "([^"]*)"$/) do |code, org_type|
 
   # Grid reference page
   @app.grid_reference_page.submit(
-    grid_reference: 'ST 58132 72695',
-    description: 'Location of activity'
+    grid_reference: "ST 58132 72695",
+    description: "Location of activity"
   )
 
   # User type page
@@ -99,7 +99,7 @@ Given(/^I then opt to change FRA(\d+)$/) do |code|
 end
 
 Then(/^I will be taken back to the add exemptions page$/) do
-  expect(page).to have_content 'Select the exemption you want to register'
+  expect(page).to have_content "Select the exemption you want to register"
 end
 
 When(/^I confirm my registration$/) do
@@ -107,7 +107,7 @@ When(/^I confirm my registration$/) do
 end
 
 Then(/^I will see confirmation my registration has been submitted$/) do
-  expect(page).to have_content 'Registration submitted '
+  expect(page).to have_content "Registration submitted "
 end
 
 And(/^give "([^"]*)" as the contact$/) do |name|
@@ -115,18 +115,18 @@ And(/^give "([^"]*)" as the contact$/) do |name|
   # Correspondence contact name page
   @app.correspondence_contact_name_page.submit(
     full_name: name,
-    position: 'Project Manager'
+    position: "Project Manager"
   )
 
   # Correspondence contact telephone page
   @app.correspondence_contact_telephone_page.submit(
-    telephone_number: '01234567899'
+    telephone_number: "01234567899"
   )
 
   # Correspondence contact email address page
   @app.correspondence_contact_email_page.submit(
-    email: 'tim.stone.ea@gmail.com',
-    confirm_email: 'tim.stone.ea@gmail.com'
+    email: "tim.stone.ea@gmail.com",
+    confirm_email: "tim.stone.ea@gmail.com"
   )
 
   # Email someone else page

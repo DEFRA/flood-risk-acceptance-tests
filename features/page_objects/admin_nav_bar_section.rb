@@ -14,14 +14,14 @@ class AdminNavBarSection < SitePrism::Section
   # confirm/test its working. See
   # https://developers.google.com/web/updates/2015/05/search-dom-tree-by-css-selector
 
-  element(:registrations_menu, '.dropdown:nth-child(1) .dropdown-toggle')
-  element(:search_option, '.dropdown-menu li:nth-child(1) a')
-  element(:new_option, '.dropdown-menu li:nth-child(2) a')
-  element(:export_option, '.dropdown-menu li~ li+ li a')
+  element(:registrations_menu, ".dropdown:nth-child(1) .dropdown-toggle")
+  element(:search_option, ".dropdown-menu li:nth-child(1) a")
+  element(:new_option, ".dropdown-menu li:nth-child(2) a")
+  element(:export_option, ".dropdown-menu li~ li+ li a")
 
-  element(:users_menu, '.dropdown+ .dropdown .dropdown-toggle')
-  element(:view_users_option, '.dropdown-menu li:nth-child(1) a')
-  element(:invite_user_option, '.dropdown-menu li+ li a')
+  element(:users_menu, ".dropdown+ .dropdown .dropdown-toggle")
+  element(:view_users_option, ".dropdown-menu li:nth-child(1) a")
+  element(:invite_user_option, ".dropdown-menu li+ li a")
 
   element(:sign_out_link, "a[href='/users/sign_out']")
 
