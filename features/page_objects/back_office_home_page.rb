@@ -8,7 +8,7 @@ class BackOfficeHomePage < SitePrism::Page
   # is also a class method.
   def self.convert_url
     host_url = Capybara.app_host
-    prefix = 'https://admin-'
+    prefix = "https://admin-"
 
     # We check whether the url starts with either https or http (case
     # insenstive). In both cases we replace that the prefix above.

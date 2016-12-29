@@ -1,9 +1,9 @@
 class LoginPage < SitePrism::Page
 
-  element(:alert_invalid, "div.alert-danger[role='alert']", text: 'Invalid email or password')
+  element(:alert_invalid, "div.alert-danger[role='alert']", text: "Invalid email or password")
 
-  element(:email, '#user_email')
-  element(:password, '#user_password')
+  element(:email, "#user_email")
+  element(:password, "#user_password")
 
   element(:submit_button, "input[name='commit']")
 

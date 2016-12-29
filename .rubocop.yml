@@ -28,6 +28,12 @@ Style/EmptyLinesAroundClassBody:
 Style/EmptyLinesAroundBlockBody:
   Enabled: false
 
+# There are no relative performance improvements using '' over "", therefore we
+# believe there is more value in using "" for all strings irrespective of
+# whether string interpolation is used
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
 # We believe the default 80 characters is too restrictive and that lines can
 # still be readable and maintainable when no more than 120 characters. This also
 # allows us to maximise our screen space.

@@ -1,7 +1,7 @@
 class EmailSomeoneElsePage < SitePrism::Page
 
-  element(:email, "input[id='email_someone_else_email_address']")
-  element(:confirm_email, "input[id='email_someone_else_email_address_confirmation']")
+  element(:email, "input#email_someone_else_email_address")
+  element(:confirm_email, "input#email_someone_else_email_address_confirmation")
 
   element(:submit_button, "input[name='commit']")
 

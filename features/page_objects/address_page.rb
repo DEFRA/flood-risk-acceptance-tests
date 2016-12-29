@@ -1,12 +1,12 @@
 class AddressPage < SitePrism::Page
 
-  element(:show_list, "input[id='address_match_selection']")
-  element(:results_dropdown, 'select#address_match_selection')
+  element(:show_list, "input#address_match_selection")
+  element(:results_dropdown, "select#address_match_selection")
 
-  element(:address_premises, "input[id='address_premises']")
-  element(:street_address, "input[id='address_street_address']")
-  element(:address_locality, "input[id='address_locality']")
-  element(:address_city, "input[id='address_city']")
+  element(:address_premises, "input#address_premises")
+  element(:street_address, "input#address_street_address")
+  element(:address_locality, "input#address_locality")
+  element(:address_city, "input#address_city")
 
   element(:submit_button, "input[name='commit']")
 
