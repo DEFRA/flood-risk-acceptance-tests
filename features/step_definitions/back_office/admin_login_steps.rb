@@ -22,7 +22,7 @@ Then(/^I will be able to login$/) do
 
   # We could just do a `expect(page).to have_content()`` but doing the following
   # also checks the alert element appears
-  expect(@app.search_page.alert_success.text).to end_with("You've successfully signed in")
+  expect(@app.search_page).to have_alert_success
 
 end
 
@@ -30,6 +30,6 @@ Then(/^I will NOT be able to login$/) do
 
   # We could just do a `expect(page).to have_content()`` but doing the following
   # also checks the alert element appears
-  expect(@app.back_office_home_page.alert_invalid.text).to end_with('Invalid email or password')
+  expect(@app.back_office_home_page).to have_alert_invalid
 
 end
