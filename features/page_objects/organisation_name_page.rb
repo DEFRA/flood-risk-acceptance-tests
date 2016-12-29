@@ -1,11 +1,11 @@
 class OrganisationNamePage < SitePrism::Page
 
-  element(:local_authority_name, "input[id='local_authority_name']")
-  element(:ltd_company_name, "input[id='limited_company_name_name']")
-  element(:llp_name, "input[id='limited_liability_partnership_name_name']")
-  element(:other_name, "input[id='other_name']")
-  element(:partnership_full_name, "input[id='partnership_full_name']")
-  element(:individual_name, "input[id='individual_name_name']")
+  element(:local_authority_name, "input#local_authority_name")
+  element(:ltd_company_name, "input#limited_company_name_name")
+  element(:llp_name, "input#limited_liability_partnership_name_name")
+  element(:other_name, "input#other_name")
+  element(:partnership_full_name, "input#partnership_full_name")
+  element(:individual_name, "input#individual_name_name")
 
   element(:submit_button, "input[name='commit']")
 

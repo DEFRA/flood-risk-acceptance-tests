@@ -1,6 +1,8 @@
 class RegistrationNumberPage < SitePrism::Page
-  element(:ltd_reg_number, "input[id='limited_company_number_registration_number']")
-  element(:llp_reg_number, "input[id='limited_liability_partnership_number_registration_number']")
+
+  element(:ltd_reg_number, "input#limited_company_number_registration_number")
+  element(:llp_reg_number, "input#limited_liability_partnership_number_registration_number")
+
   element(:submit_button, "input[name='commit']")
 
   def submit(args = {})

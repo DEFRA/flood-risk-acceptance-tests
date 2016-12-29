@@ -1,7 +1,7 @@
 class CorrespondenceContactEmailPage < SitePrism::Page
 
-  element(:email, "input[id='correspondence_contact_email_email_address']")
-  element(:confirm_email, "input[id='correspondence_contact_email_email_address_confirmation']")
+  element(:email, "input#correspondence_contact_email_email_address")
+  element(:confirm_email, "input#correspondence_contact_email_email_address_confirmation")
 
   element(:submit_button, "input[name='commit']")
 
