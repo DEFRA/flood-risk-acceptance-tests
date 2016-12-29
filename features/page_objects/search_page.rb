@@ -7,4 +7,6 @@ class SearchPage < SitePrism::Page
 
   element(:search_button, "input[type='submit'][value='Search']")
 
+  section(:nav_bar, AdminNavBarSection, '.navbar-collapse')
+
 end
