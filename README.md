@@ -43,6 +43,18 @@ Into that file you'll need to add the `app_host:` entry, with the url of the FRA
 
 If left as that by default when **Quke** is executed it will run against your selected environment using the headless browser **PhantomJS**.
 
+### Back office
+
+The project contains logic to automatically determine the URL to the back office, by assuming `app_host:` is the front office URL for one of our standard environments (development, QA, pre-prod or production).
+
+This means you can run all the tests, even though you have only given **Quke** details for the front office.
+
+However if you're not running the project against one of these standard environments (for example you are running against a deployment in [Heroku](https://heroku.com), or something you have running locally) you can override this logic and simply tell **Quke** the back office URL via an environment variable.
+
+```bash
+FRAE_BO_URL="http://localhost:3001" bundle exec quke --tags ~@ci
+```
+
 ## Execution
 
 Simply call
