@@ -7,6 +7,10 @@ class BackOfficeHomePage < SitePrism::Page
   # N.B. set as a class method because its intended caller is set_url(), which
   # is also a class method.
   def self.convert_url
+    # Shortcut override - if an env var is set use its value rather than
+    # attempting to convert the url supplied in .config.yml
+    return ENV["FRAE_BO_URL"] if ENV["FRAE_BO_URL"]
+
     host_url = Capybara.app_host
     prefix = "https://admin-"
 
