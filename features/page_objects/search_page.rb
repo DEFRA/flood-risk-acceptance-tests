@@ -9,6 +9,8 @@ class SearchPage < SitePrism::Page
 
   element(:view_first_search_result, ".btn-primary")
 
+  element(:registration_status, "tr:nth-child(1) .label-danger")
+
   section(:nav_bar, AdminNavBarSection, ".add-bottom-margin .container")
 
 end

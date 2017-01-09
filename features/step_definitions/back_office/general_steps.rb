@@ -63,3 +63,8 @@ end
 Then(/^I will see confirmation the registration has been submitted$/) do
   expect(page).to have_content "Registration submitted"
 end
+
+Then(/^I will see the registration is "([^"]*)"$/) do | action |
+  expect(@app.registration_details_page.registration_status.text).to eq(action)
+end
+
