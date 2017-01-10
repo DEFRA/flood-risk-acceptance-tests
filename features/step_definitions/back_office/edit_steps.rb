@@ -6,5 +6,5 @@ When(/^I "([^"]*)" a submitted registration$/) do |action|
   @app.registration_details_page.submit(
     action_type: action.to_sym
   )
-@app.send("#{action}_registration_page").submit
+  @app.send("#{action}_registration_page").submit
 end

@@ -128,5 +128,10 @@ class App
   def approve_registration_page
     @last_page = ApproveRegistrationPage.new
   end
-    
+
+  # /admin/enrollment_exemptions/[id]/reject
+  def reject_registration_page
+    @last_page = RejectRegistrationPage.new
+  end
+
 end
