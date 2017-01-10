@@ -1,8 +1,8 @@
 
 Feature: NCCC user administers a flood risk activity exemptions on behalf of a customer
   As a member of NCCC
-  I want to administer flood risk activity exemption requests on behalf of a customer
-  So that anyone needing to have digital assistance can have help with their flood risk activity exemption requests
+  I want to administer flood risk activity exemption activities
+  So that I can mark each activity exemptions state before or after internal screening
 
   Background:
   	Given I am an internal user
@@ -19,8 +19,8 @@ Feature: NCCC user administers a flood risk activity exemptions on behalf of a c
      When I "approve" a submitted registration
      Then I will see the registration is "Approved"
 
-  @backoffice @wip
-   Scenario: Back office user approves registration
+  @backoffice
+   Scenario: Back office user rejects registration
      When I "reject" a submitted registration
      Then I will see the registration is "Rejected"
 
