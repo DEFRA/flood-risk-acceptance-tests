@@ -11,3 +11,4 @@ Feature: NCCC user administers a flood risk activity exemptions on behalf of a c
   Scenario: Registration of a flood risk activity exemption by NCCC staff using the backoffice system
      When I register a flood risk activity exemption for a customer
      Then I will see confirmation the registration has been submitted
+     

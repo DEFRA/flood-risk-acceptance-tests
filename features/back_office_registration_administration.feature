@@ -23,7 +23,3 @@ Feature: NCCC user administers a flood risk activity exemptions on behalf of a c
    Scenario: Back office user rejects registration
      When I "reject" a submitted registration
      Then I will see the registration is "Rejected"
-
-
-
-     
