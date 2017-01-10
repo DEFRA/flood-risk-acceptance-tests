@@ -1,10 +1,11 @@
 When(/^I register a flood risk activity exemption for a customer$/) do
 
   @app.search_page.nav_bar.registrations_menu.click
-  @app.search_page.nav_bar.new_option.click	
+  @app.search_page.nav_bar.new_option.click
 
   @app.add_exemption_page.submit(
-  	exemption: "FRA2")
+    exemption: "FRA2"
+  )
 
   expect(page).to have_content("FRA2")
   @app.check_exemptions_page.submit_button.click
@@ -14,7 +15,7 @@ When(/^I register a flood risk activity exemption for a customer$/) do
     description: "Location of activity"
   )
 
-    # User type page
+  # User type page
   @app.user_type_page.submit(org_type: "individual")
 
   # Organisation name page
@@ -55,7 +56,7 @@ When(/^I register a flood risk activity exemption for a customer$/) do
   @app.check_your_answers_page.submit_button.click
 
   @app.declaration_page.declaration_button.click
-  
+
   @exemption_number = @app.confirmation_page.exemption_number.text
   puts @exemption_number
 end
@@ -64,7 +65,6 @@ Then(/^I will see confirmation the registration has been submitted$/) do
   expect(page).to have_content "Registration submitted"
 end
 
-Then(/^I will see the registration is "([^"]*)"$/) do | action |
+Then(/^I will see the registration is "([^"]*)"$/) do |action|
   expect(@app.registration_details_page.registration_status.text).to eq(action)
 end
-

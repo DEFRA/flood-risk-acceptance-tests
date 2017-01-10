@@ -1,9 +1,12 @@
-When(/^I withdraw a submitted registration$/) do
+When(/^I "([^"]*)" a submitted registration$/) do |action|
   @app.search_page.nav_bar.home_link.click
   @app.search_page.search_field.set @exemption_number
   @app.search_page.search_button.click
   @app.search_page.view_first_search_result.click
-  @app.registration_details_page.withdraw_registration.click
-  @app.withdraw_page.submit(
-  	withdraw_comment: "Test withdrawn registration")
+  @app.registration_details_page.submit(
+    action_type: action.to_sym
+  )
+
+puts "@app.#{action}_registration_page.submit"
+@app.send("#{action}_registration_page").submit
 end

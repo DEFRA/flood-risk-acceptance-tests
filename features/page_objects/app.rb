@@ -118,9 +118,15 @@ class App
   def registration_details_page
     @last_page = RegistrationDetailsPage.new
   end
-# admin/enrollment_exemptions/[id]/withdraw
-  def withdraw_page
-    @last_page = WithdrawPage.new
+
+  # admin/enrollment_exemptions/[id]/withdraw
+  def withdraw_registration_page
+    @last_page = WithdrawRegistrationPage.new
   end
 
+  # /admin/enrollment_exemptions/[id]/approve
+  def approve_registration_page
+    @last_page = ApproveRegistrationPage.new
+  end
+    
 end
