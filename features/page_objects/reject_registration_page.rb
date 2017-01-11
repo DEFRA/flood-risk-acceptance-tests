@@ -4,8 +4,9 @@ class RejectRegistrationPage < SitePrism::Page
 
   element(:submit_button, "input[name='commit']")
 
-  def submit
-    comment.set "This is a test"
+  def submit(args = {})
+    comment.set args[:comment] if args.key?(:comment)
+
     submit_button.click
   end
 

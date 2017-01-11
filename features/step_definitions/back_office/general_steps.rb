@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 When(/^I register a flood risk activity exemption for a customer$/) do
 
   @app.search_page.nav_bar.registrations_menu.click
@@ -58,13 +59,17 @@ When(/^I register a flood risk activity exemption for a customer$/) do
   @app.declaration_page.declaration_button.click
 
   @exemption_number = @app.confirmation_page.exemption_number.text
-  puts @exemption_number
+
 end
+# rubocop:enable Metrics/BlockLength
 
 Then(/^I will see confirmation the registration has been submitted$/) do
+
   expect(page).to have_content "Registration submitted"
 end
 
 Then(/^I will see the registration is "([^"]*)"$/) do |action|
-  expect(@app.registration_details_page.registration_status.text).to eq(action)
+
+  expect(@app.registration_page.registration_status.text).to eq(action)
+
 end
