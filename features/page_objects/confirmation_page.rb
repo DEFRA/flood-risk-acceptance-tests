@@ -1,5 +1,5 @@
 class ConfirmationPage < SitePrism::Page
 
-  # no elements of interest in  this page at this time.
+  element(:exemption_number, ".govuk-box-highlight .heading-medium")
 
 end

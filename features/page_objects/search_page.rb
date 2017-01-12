@@ -7,6 +7,10 @@ class SearchPage < SitePrism::Page
 
   element(:search_button, "input[type='submit'][value='Search']")
 
+  element(:view_first_search_result, ".btn-primary")
+
+  element(:registration_status, "tr:nth-child(1) .label-danger")
+
   section(:nav_bar, AdminNavBarSection, ".add-bottom-margin .container")
 
 end

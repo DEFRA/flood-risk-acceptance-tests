@@ -34,6 +34,12 @@ Style/EmptyLinesAroundBlockBody:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+# We believe the default of 10 lines for a method length is too restrictive and
+# often quickly hit just because we need to specify the namesspace, class and
+# method before then doing something with it.
+Metrics/MethodLength:
+  Max: 30
+
 # We believe the default 80 characters is too restrictive and that lines can
 # still be readable and maintainable when no more than 120 characters. This also
 # allows us to maximise our screen space.
