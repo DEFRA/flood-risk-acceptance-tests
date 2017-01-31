@@ -73,3 +73,40 @@ Then(/^I will see the registration is "([^"]*)"$/) do |action|
   expect(@app.registration_page.registration_status.text).to eq(action)
 
 end
+
+When(/^I export registrations for today$/) do
+  @app.search_page.nav_bar.registrations_menu.click
+  @app.search_page.nav_bar.export_option.click
+
+  # finds today's date and saves them for use in export from date
+  # 'To' date defaults to today's date is isn't required
+  time = Time.new
+
+  @year = time.year
+  @month = time.strftime("%B")
+  @day = time.day
+
+  @app.enrollment_exports_page.submit(
+    from_day: @day,
+    from_month: @month,
+    from_year: @year
+  )
+  expect(@app.enrollment_exports_page).to have_export_alert
+end
+
+Then(/^I will see the exported registrations file status as complete$/) do
+
+  refresh_cnt = 0
+  loop do
+    if @app.enrollment_exports_page.latest_export_status.text == "Complete"
+      refresh_cnt = 20
+    else
+      refresh_cnt += 1
+      sleep(1)
+      @app.enrollment_exports_page.refresh.click
+    end
+    break unless refresh_cnt < 20
+  end
+
+  expect(@app.enrollment_exports_page.latest_export_status.text).to eq("Complete")
+end
