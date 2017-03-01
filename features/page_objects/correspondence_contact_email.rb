@@ -1,5 +1,7 @@
 class CorrespondenceContactEmailPage < SitePrism::Page
 
+  element(:back_link, ".back-link")
+
   element(:email, "input#correspondence_contact_email_email_address")
   element(:confirm_email, "input#correspondence_contact_email_email_address_confirmation")
 

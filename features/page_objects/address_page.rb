@@ -3,6 +3,8 @@ class AddressPage < SitePrism::Page
   element(:show_list, "input#address_match_selection")
   element(:results_dropdown, "select#address_match_selection")
 
+  element(:cannot_find_address_link, "fieldset+ p .change-postcode-button")
+
   element(:address_premises, "input#address_premises")
   element(:street_address, "input#address_street_address")
   element(:address_locality, "input#address_locality")
@@ -15,8 +17,8 @@ class AddressPage < SitePrism::Page
 
     address_premises.set(args[:address_premises]) if args.key?(:address_premises)
     street_address.set(args[:street_address]) if args.key?(:street_address)
-    telephone_number.set(args[:address_locality]) if args.key?(:address_locality)
-    telephone_number.set(args[:address_city]) if args.key?(:address_city)
+    address_locality.set(args[:address_locality]) if args.key?(:address_locality)
+    address_city.set(args[:address_city]) if args.key?(:address_city)
 
     submit_button.click
   end

@@ -1,5 +1,7 @@
 class CorrespondenceContactTelephonePage < SitePrism::Page
 
+  element(:back_link, ".back-link")
+
   element(
     :telephone_number,
     "input[name='correspondence_contact_telephone[telephone_number]']"

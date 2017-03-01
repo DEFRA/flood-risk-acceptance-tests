@@ -1,5 +1,7 @@
 class EmailSomeoneElsePage < SitePrism::Page
 
+  element(:back_link, ".back-link")
+
   element(:email, "input#email_someone_else_email_address")
   element(:confirm_email, "input#email_someone_else_email_address_confirmation")
 
