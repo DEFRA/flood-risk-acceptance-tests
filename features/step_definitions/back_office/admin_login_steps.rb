@@ -6,6 +6,11 @@ Given(/^I have a valid username and password$/) do
     password: "Abcde12345"
   )
 
+  # If we don't check for some form of confirmation that we have logged in,
+  # though the scenario will fail it will report the proceeding step as the
+  # culprit, rather than the login
+  expect(@app.search_page).to have_alert_success
+
 end
 
 Given(/^I have an invalid username and password$/) do
@@ -15,6 +20,8 @@ Given(/^I have an invalid username and password$/) do
     email: "mister.tumble@example.co.uk",
     password: "Abcde12345"
   )
+
+  expect(@app.login_page).to have_alert_invalid
 
 end
 

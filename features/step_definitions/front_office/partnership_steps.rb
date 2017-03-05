@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/BlockLength
 Given(/^I am a partnership$/) do
   # User type page
   @app.user_type_page.submit(org_type: "partnership")
@@ -62,7 +61,6 @@ Given(/^I am a partnership$/) do
   # Check your answers page
   @app.check_your_answers_page.submit_button.click
 end
-# rubocop:enable Metrics/BlockLength
 
 And(/^add "([^"]*)" as the first partner$/) do |name|
 

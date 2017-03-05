@@ -34,6 +34,13 @@ Style/EmptyLinesAroundBlockBody:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+# Steps aren't like traditional methods and don't benefit from being broken
+# down. Therefore we exclude them from the block length metric as they often can
+# be long.
+Metrics/BlockLength:
+  Exclude:
+    - "**/features/step_definitions/**/*_steps.rb"
+
 # We believe the default of 10 lines for a method length is too restrictive and
 # often quickly hit just because we need to specify the namesspace, class and
 # method before then doing something with it.

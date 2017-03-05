@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/BlockLength
 When(/^I register a flood risk activity exemption for a customer$/) do
 
   @app.search_page.nav_bar.registrations_menu.click
@@ -61,7 +60,6 @@ When(/^I register a flood risk activity exemption for a customer$/) do
   @exemption_number = @app.confirmation_page.exemption_number.text
 
 end
-# rubocop:enable Metrics/BlockLength
 
 Then(/^I will see confirmation the registration has been submitted$/) do
 

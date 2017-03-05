@@ -11,6 +11,8 @@ class SearchPage < SitePrism::Page
 
   element(:registration_status, "tr:nth-child(1) .label-danger")
 
+  elements(:search_results_view_btns, ".btn-primary")
+
   section(:nav_bar, AdminNavBarSection, ".add-bottom-margin .container")
 
 end
