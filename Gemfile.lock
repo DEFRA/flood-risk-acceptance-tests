@@ -51,7 +51,7 @@ GEM
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
-    public_suffix (3.0.0)
+    public_suffix (3.0.1)
     quke (0.3.2)
       capybara (~> 2.9)
       chromedriver-helper (~> 1.0)
