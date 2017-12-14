@@ -5,9 +5,7 @@ class UserTypePage < SitePrism::Page
   element(:submit_button, "input[name='commit']")
 
   def submit(args = {})
-    if args.key?(:org_type)
-      org_types.find { |btn| btn.value == args[:org_type] }.click
-    end
+    org_types.find { |btn| btn.value == args[:org_type] }.click if args.key?(:org_type)
 
     submit_button.click
   end
