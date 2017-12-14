@@ -8,31 +8,26 @@ AllCops:
   # investigating what the fix may be.
   DisplayStyleGuide: true
 
-# When using Ruby >= 2.3, Rubocop wants to add a comment to the top of *.rb
-# to aid migration to frozen literals in Ruby 3.0. We are not interested in
-# modifying every file at this point, so this cop is disabled for now.
-Style/FrozenStringLiteralComment:
+# We believe it looks cluttered not having the ability to have empty lines after
+# the module, class, and block declarations
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+Layout/EmptyLinesAroundClassBody:
   Enabled: false
 
-# As long as the team commit to using well named classes it should not be
-# necessary to add top-level class documentation.
-Style/Documentation:
-  Enabled: false
+# We felt as a team that the default size of 15 was too low, and blocked what to
+# us are sound methods which would not add any value if broken up. In this
+# project we've agreed to up this to 30.
+Metrics/AbcSize:
+  Max: 30
 
-# We believe it looks cluttered/ugly not having the ability to add whitespace
-# between for example the class declaration and first method.
-Style/EmptyLinesAroundModuleBody:
-  Enabled: false
-Style/EmptyLinesAroundClassBody:
-  Enabled: false
-Style/EmptyLinesAroundBlockBody:
-  Enabled: false
-
-# There are no relative performance improvements using '' over "", therefore we
-# believe there is more value in using "" for all strings irrespective of
-# whether string interpolation is used
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+# We felt as a team that the default size of 6 was too low, and blocked what to
+# us are sound methods which would not add any value if broken up. In this
+# project we've agreed to up this to 7.
+Metrics/CyclomaticComplexity:
+  Max: 7
 
 # Steps aren't like traditional methods and don't benefit from being broken
 # down. Therefore we exclude them from the block length metric as they often can
@@ -53,14 +48,26 @@ Metrics/MethodLength:
 Metrics/LineLength:
   Max: 120
 
-# We felt as a team that the default size of 15 was too low, and blocked what to
-# us are sound methods which would not add any value if broken up. In this
-# project we've agreed to up this to 30.
-Metrics/AbcSize:
-  Max: 30
+# As long as the team commit to using well named classes it should not be
+# necessary to add top-level class documentation.
+Style/Documentation:
+  Enabled: false
 
-# We felt as a team that the default size of 6 was too low, and blocked what to
-# us are sound methods which would not add any value if broken up. In this
-# project we've agreed to up this to 7.
-Metrics/CyclomaticComplexity:
-  Max: 7
+# This rule was added in version 0.49.0. We have nothing against the rule
+# however the code we have it doesn't like is anything that uses strftime().
+# We feel the way we are using that is as expected, so have taken the decision
+# to turn off this cop. https://github.com/bbatsov/rubocop/issues/3438
+Style/FormatStringToken:
+  Enabled: false
+
+# When using Ruby >= 2.3, Rubocop wants to add a comment to the top of *.rb
+# to aid migration to frozen literals in Ruby 3.0. We are not interested in
+# modifying every file at this point, so this cop is disabled for now.
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# There are no relative performance improvements using '' over "", therefore we
+# believe there is more value in using "" for all strings irrespective of
+# whether string interpolation is used
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
