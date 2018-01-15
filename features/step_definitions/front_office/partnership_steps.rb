@@ -10,7 +10,7 @@ Given(/^I am a partnership$/) do
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
   # Partnership details page
@@ -28,7 +28,7 @@ Given(/^I am a partnership$/) do
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
   # Partnership details page - again!
@@ -72,7 +72,7 @@ And(/^add "([^"]*)" as the first partner$/) do |name|
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
 end
@@ -92,7 +92,7 @@ And(/^add "([^"]*)" as a partner$/) do |name|
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
 end
@@ -112,7 +112,7 @@ And(/^add "([^"]*)" as the last partner$/) do |name|
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
   # Partnership details page
@@ -129,7 +129,7 @@ But(/^then remove "([^"]*)" from the partners list$/) do |name|
   # passing the code which causes the dialog to appear as a block to the method.
   # http://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession%3Aaccept_confirm
   # http://stackoverflow.com/a/26348968/6117745
-  page.accept_confirm do
+  page.accept_alert do
     @app.partnership_details_page.remove_link(name).click
   end
 
