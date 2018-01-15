@@ -38,7 +38,16 @@ You can figure how the project runs using [Quke config files](https://github.com
 touch .config.yml
 ```
 
-Into that file you'll need to add the `app_host:` entry, with the url of the FRAE environment you wish to test against.
+Into that file you'll need to add as a minimum this, replacing the example values with ones relevant to the environment under test.
+
+```yaml
+app_host: 'https://urlofenvironmenttotest.example.com'
+custom:
+  accounts:
+    SystemUser:
+      username: system.user@example.com
+      password: SystemUserPassword1
+```
 
 If left as that by default when **Quke** is executed it will run against your selected environment using the headless browser **PhantomJS**.
 
