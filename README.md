@@ -42,6 +42,19 @@ Into that file you'll need to add the `app_host:` entry, with the url of the FRA
 
 If left as that by default when **Quke** is executed it will run against your selected environment using the headless browser **PhantomJS**.
 
+### Custom FRAE config
+
+Recently we have needed to add special logic for running the tests in our environments (dev, QA and Pre-prod). Though fine locally tests are failing if the a submit button is 'off the page' i.e. you would need to scroll to click it. Because of this when setting up the tests to run automatically from the Jenkins slave you will need to add the following to the `.config.yml`.
+
+```yaml
+custom:
+  window_size:
+    width: 1000
+    height: 2000
+```
+
+The project now includes logic to look for this and if present will resize the window accordingly. Ideally this situation should be periodically tested to see if this workaround is still required.
+
 ### Back office
 
 The project contains logic to automatically determine the URL to the back office, by assuming `app_host:` is the front office URL for one of our standard environments (development, QA, pre-prod or production).
