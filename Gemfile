@@ -19,3 +19,12 @@ gem "rubocop", require: false
 # Hence by referring to it here we can lock the version to one we know allows
 # this project to run in our environments.
 gem "chromedriver-helper", "1.0.0"
+
+# We don't actually need a reference to capybara for this project; quke itself
+# brings it in. However when the gem updated to 2.14.1 it appears to have broken
+# our ability to confirm the javascript prompt that is shown when deleting a
+# partner.
+# https://github.com/teamcapybara/capybara/blob/master/History.md#version-2141
+# So until we understand what the problem is and how to resolve it we need to
+# lock the project to a version we know works.
+gem "capybara", "2.14.0"
