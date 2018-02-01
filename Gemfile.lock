@@ -65,7 +65,7 @@ GEM
       rspec-expectations (~> 3.4)
       selenium-webdriver (~> 2.53)
       site_prism (~> 2.9)
-    rack (2.0.3)
+    rack (2.0.4)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
