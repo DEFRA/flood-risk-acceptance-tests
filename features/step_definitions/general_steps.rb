@@ -8,14 +8,14 @@ end
 Given(/^I am an internal user$/) do
 
   @app = App.new
-  @app.back_office_home_page.load
+  @app.login_page.load
 
 end
 
 Given(/^I am an unknown user$/) do
 
   @app = App.new
-  @app.back_office_home_page.load
+  visit(Quke::Quke.config.custom["urls"]["back_office"])
 
 end
 

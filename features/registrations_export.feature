@@ -1,4 +1,4 @@
-@backoffice
+@backoffice @export
 Feature: Back office users can export registrations
   As a back office user
   I need the ability to see all the registrations for a given period

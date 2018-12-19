@@ -58,7 +58,6 @@ When(/^I register a flood risk activity exemption for a customer$/) do
   @app.declaration_page.declaration_button.click
 
   @exemption_number = @app.confirmation_page.exemption_number.text
-
 end
 
 Then(/^I will see confirmation the registration has been submitted$/) do
