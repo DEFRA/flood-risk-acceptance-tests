@@ -101,10 +101,6 @@ class App
 
   # BACK OFFICE SPECIFIC PAGES
   # /
-  def back_office_home_page
-    @last_page = BackOfficeHomePage.new
-  end
-
   # / (when not signed in)
   def login_page
     @last_page = LoginPage.new
