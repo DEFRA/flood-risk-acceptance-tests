@@ -99,7 +99,7 @@ Then(/^I will see the exported registrations file status as complete$/) do
       refresh_cnt = 20
     else
       refresh_cnt += 1
-      sleep(1)
+      sleep(5)
       @app.enrollment_exports_page.refresh.click
     end
     break unless refresh_cnt < 20
