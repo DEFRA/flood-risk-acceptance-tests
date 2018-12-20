@@ -35,6 +35,7 @@ custom:
   accounts:
     SystemUser:
       username: tim.stone.ea@gmail.com
+      password: Abcde12345
       
   urls:
     front_office: "https://fra-dev.aws.defra.cloud"
