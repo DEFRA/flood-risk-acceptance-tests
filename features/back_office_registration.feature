@@ -22,9 +22,10 @@ Feature: NCCC user administers a flood risk activity exemptions on behalf of a c
   #
   # This scenario covers the steps necessary to reproduce the problem. See
   # https://eaflood.atlassian.net/browse/RIP-359 for more details.
-  @fix
-  Scenario: Registration in the backoffice where the user goes back and re-enters the address manually
-    Given I get to the check your answers page
-     And The user wishes to correct their address
-     When I enter the address manually and complete the registration
-     Then I should see just one result when searching for the registration
+
+  # @fix
+  # Scenario: Registration in the backoffice where the user goes back and re-enters the address manually
+  #   Given I get to the check your answers page
+  #    And The user wishes to correct their address
+  #    When I enter the address manually and complete the registration
+  #    Then I should see just one result when searching for the registration

@@ -10,7 +10,7 @@ Given(/^I am an individual$/) do
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
   # Correspondence contact name page

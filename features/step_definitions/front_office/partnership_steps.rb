@@ -10,7 +10,7 @@ Given(/^I am a partnership$/) do
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
   # Partnership details page
@@ -28,7 +28,7 @@ Given(/^I am a partnership$/) do
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
   # Partnership details page - again!
@@ -72,7 +72,7 @@ And(/^add "([^"]*)" as the first partner$/) do |name|
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
 end
@@ -92,7 +92,7 @@ And(/^add "([^"]*)" as a partner$/) do |name|
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
 end
@@ -112,7 +112,7 @@ And(/^add "([^"]*)" as the last partner$/) do |name|
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "NATURAL ENGLAND, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
   # Partnership details page
