@@ -1,7 +1,7 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.3.1
+  - 2.4.2
 
 # Travis CI clones repositories to a depth of 50 commits, which is only really
 # useful if you are performing git operations.
