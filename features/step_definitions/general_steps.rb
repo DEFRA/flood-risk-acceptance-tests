@@ -107,7 +107,7 @@ When(/^I confirm my registration$/) do
 end
 
 Then(/^I will see confirmation my registration has been submitted$/) do
-  expect(page).to have_content "Registration submitted "
+  expect(page).to have_content "Registration submitted"
 end
 
 And(/^give "([^"]*)" as the contact$/) do |name|
