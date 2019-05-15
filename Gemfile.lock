@@ -120,8 +120,6 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  capybara (= 3.18.0)
-  chromedriver-helper (= 2.1)
   quke!
   rake
   rubocop
