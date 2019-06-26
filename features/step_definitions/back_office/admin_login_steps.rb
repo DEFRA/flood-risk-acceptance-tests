@@ -1,8 +1,10 @@
 Given(/^I have a valid username and password$/) do
   # Back office login page
   @app.login_page.submit(
-    email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
-    password: Quke::Quke.config.custom["accounts"]["SystemUser"]["password"]
+    # email: email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
+    # password: Quke::Quke.config.custom["accounts"]["SystemUser"]["password"]
+    email: ENV["FRAE_DEFAULT_USERNAME"], # this comes from your local machine
+    password: ENV["FRAE_DEFAULT_PASSWORD"]
   )
 
   # If we don't check for some form of confirmation that we have logged in,
@@ -17,7 +19,7 @@ Given(/^I have an invalid username and password$/) do
   # Back office login page
   @app.login_page.submit(
     email: "mister.tumble@example.co.uk",
-    password: ENV["FRAE_DEFAULT_PASSWORD"]
+    password: "cheesicles" # was ENV["FRAE_DEFAULT_PASSWORD"]
   )
 
   expect(@app.login_page).to have_alert_invalid

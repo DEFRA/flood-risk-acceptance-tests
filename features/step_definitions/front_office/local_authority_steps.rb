@@ -26,14 +26,14 @@ Given(/^I am a local authority$/) do
 
   # Correspondence contact email address page
   @app.correspondence_contact_email_page.submit(
-    email: "tim.stone.ea@gmail.com",
-    confirm_email: "tim.stone.ea@gmail.com"
+    email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
+    confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"]
   )
 
   # Email someone else page
   @app.email_someone_else_page.submit(
-    email: "tim.stone.ea+1@gmail.com",
-    confirm_email: "tim.stone.ea+1@gmail.com"
+    email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"],
+    confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"]
   )
 
   @app.check_your_answers_page.submit_button.click

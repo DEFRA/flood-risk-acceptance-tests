@@ -41,14 +41,14 @@ Given(/^I get to the check your answers page$/) do
 
   # Correspondence contact email address page
   @app.correspondence_contact_email_page.submit(
-    email: "tim.stone.ea@gmail.com",
-    confirm_email: "tim.stone.ea@gmail.com"
+    email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
+    confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"]
   )
 
   # Email someone else page
   @app.email_someone_else_page.submit(
-    email: "tim.stone.ea+1@gmail.com",
-    confirm_email: "tim.stone.ea+1@gmail.com"
+    email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"],
+    confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"]
   )
 
   expect(@app.check_your_answers_page.current_url).to end_with "/steps/check_your_answers"

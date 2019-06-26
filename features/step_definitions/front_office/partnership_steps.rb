@@ -3,7 +3,7 @@ Given(/^I am a partnership$/) do
   @app.user_type_page.submit(org_type: "partnership")
 
   # Organisation name page
-  @app.organisation_name_page.submit(partnership_full_name: "Mickey Mouse")
+  @app.organisation_name_page.submit(partnership_full_name: "Fray and Bentos Associates")
 
   # Postcode page
   @app.postcode_page.submit(partnership_postcode: "BS1 5AH")
@@ -19,7 +19,7 @@ Given(/^I am a partnership$/) do
   @app.partnership_details_page.add_partner_link.click
 
   # Organisation name page
-  @app.organisation_name_page.submit(partnership_full_name: "Mickey Mouse")
+  @app.organisation_name_page.submit(partnership_full_name: "Fray and Bentos Associates")
 
   # Postcode page
   # We can just click submit because the page pre-populates the postcode lookup
@@ -48,14 +48,14 @@ Given(/^I am a partnership$/) do
 
   # Correspondence contact email address page
   @app.correspondence_contact_email_page.submit(
-    email: "tim.stone.ea@gmail.com",
-    confirm_email: "tim.stone.ea@gmail.com"
+    email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
+    confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"]
   )
 
   # Email someone else page
   @app.email_someone_else_page.submit(
-    email: "tim.stone.ea+1@gmail.com",
-    confirm_email: "tim.stone.ea+1@gmail.com"
+    email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"],
+    confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"]
   )
 
   # Check your answers page
