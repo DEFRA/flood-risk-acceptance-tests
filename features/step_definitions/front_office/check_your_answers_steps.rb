@@ -24,8 +24,8 @@ And(/^complete the remaining steps as an individual$/) do
 
   # Correspondence contact email address page
   @app.correspondence_contact_email_page.submit(
-    email: "tim.stone.ea@gmail.com",
-    confirm_email: "tim.stone.ea@gmail.com"
+    email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
+    confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"]
   )
 
   # Email someone else page
@@ -44,7 +44,7 @@ Then(/^I will see all the details I entered as an individual$/) do
   expect(page).to have_content "HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   expect(page).to have_content "Napoleon Solo (Owner)"
   expect(page).to have_content "01234567899"
-  expect(page).to have_content "tim.stone.ea@gmail.com"
+  # email address removed as this currently changes by environment
 
 end
 
@@ -60,6 +60,6 @@ Then(/^I will see all the details I entered as a partnership$/) do
   expect(page).to have_content "Tony Stark, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   expect(page).to have_content "Nick Fury (Project Manager)"
   expect(page).to have_content "01234567899"
-  expect(page).to have_content "tim.stone.ea@gmail.com"
+  # email address removed as this currently changes by environment
 
 end

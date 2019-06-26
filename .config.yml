@@ -9,7 +9,9 @@
 # will be by simply setting `app_host`. You can then use it directly using
 # Capybara `visit('/Main_Page')` or `visit('/')` rather than having to repeat
 # the full url each time
-app_host: 'https://fra-pre.aws.defra.cloud'
+# app_host: 'http://localhost:3000'
+app_host: 'https://fra-tst.aws.defra.cloud'
+# app_host: 'https://fra-pre.aws.defra.cloud'
 
 # Tells Quke which browser to use for testing. Choices are firefox, chrome
 # browserstack and phantomjs, with the default being phantomjs
@@ -34,9 +36,17 @@ max_wait_time: 5
 custom:
   accounts:
     SystemUser:
-      username: tim.stone.ea@gmail.com
+      username: applicant1@example.com
+      username2: applicant2@example.com
       password: Abcde12345
 
   urls:
-    front_office: "https://fra-pre.aws.defra.cloud"
-    back_office: "https://fra-admin-pre.aws.defra.cloud"
+    # local
+    # front_office: "http://localhost:3000"
+    # back_office: "http://localhost:8000"
+    # test
+    front_office: "https://fra-tst.aws.defra.cloud"
+    back_office: "https://fra-admin-tst.aws.defra.cloud"
+    # preprod
+    # front_office: "https://fra-pre.aws.defra.cloud"
+    # back_office: "https://fra-admin-pre.aws.defra.cloud"

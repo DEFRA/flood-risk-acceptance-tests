@@ -125,8 +125,8 @@ And(/^give "([^"]*)" as the contact$/) do |name|
 
   # Correspondence contact email address page
   @app.correspondence_contact_email_page.submit(
-    email: "tim.stone.ea@gmail.com",
-    confirm_email: "tim.stone.ea@gmail.com"
+    email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
+    confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"]
   )
 
   # Email someone else page
