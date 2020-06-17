@@ -1,7 +1,6 @@
-sudo: false
 language: ruby
-rvm:
-  - 2.4.2
+rvm: 2.4.2
+cache: bundler
 
 # Travis CI clones repositories to a depth of 50 commits, which is only really
 # useful if you are performing git operations.
@@ -9,9 +8,9 @@ rvm:
 git:
   depth: 3
 
-# enable Bundler caching
-# https://docs.travis-ci.com/user/languages/ruby#Caching-Bundler
-cache: bundler
+before_install:
+  - export TZ=UTC
+  - gem install -v 1.17.3 bundler --no-document
 
 # Using the ability to customise the Travis build to check for 'temporary' tags
 # i.e. tags often used when working on a feature/scenario but which we don't
@@ -23,3 +22,7 @@ before_script:
   # If grep returns 1 (no match found), test 1 -eq 1 will return 0.
   # If grep returns 2 (error), test 2 -eq 1 will return 1.
   - grep -r --include="*.feature" "@wip\|@focus" features/; test $? -eq 1
+
+script:
+  - bundle exec rubocop
+  - bundle exec rake ci
