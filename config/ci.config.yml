@@ -1,0 +1,15 @@
+# This is completly bogus data. However because of the way Cucumber works
+# all features and steps get initialised when we run Quke, its just that during
+# CI we then choose to only run those tagged @ci.
+# As some of the page objects expect there to be data read in from a .config.yml
+# the build will fail if there isn't one.
+# Hence this is here just to cater for just for this specific scenario
+custom:
+  accounts:
+    SystemUser:
+      username: applicant1@example.com
+      username2: applicant2@example.com
+      password: Abcde12345
+  urls:
+    front_office: "https://example.com"
+    back_office: "https://example.com"
