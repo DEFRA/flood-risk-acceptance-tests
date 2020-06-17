@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "quke",
     git: "https://github.com/DEFRA/quke",
-    branch: "master"
+    branch: "main"
 
 # Rake gives us the ability to create our own commands or 'tasks' for working
 # with quke.
