@@ -1,0 +1,69 @@
+# Normally Capybara expects to be testing an in-process Rack application, but
+# we're using it to talk to a remote host. Users of Quke can set what this
+# will be by simply setting `app_host`. You can then use it directly using
+# Capybara `visit('/Main_Page')` or `visit('/')` rather than having to repeat
+# the full url each time
+app_host: 'https://fra-pre.aws.defra.cloud'
+
+# Tells Quke which browser to use for testing. Choices are firefox, chrome, and
+# browserstack, with the default being chrome
+driver: chrome
+
+# Let Quke know you want to run the browser in headless mode. Headless mode
+# means the browser still runs but you won't see it displayed. The benefit is
+# that your tests will take less time as it's less resource intensive.
+headless: true
+
+# Add a pause (in seconds) between steps so you can visually track how the
+# browser is responding. Only useful if using a non-headless browser. The
+# default is 0
+pause: 0
+
+# Specify whether Quke should stop all tests once an error occurs. Useful in
+# Continuous Integration (CI) environments where a quick Yes/No is preferable to
+# a detailed response. By default Quke sets this to false if not set in the
+# config.
+stop_on_error: false
+
+# By default Quke will display web pages where a failure has taken place.
+# A copy of the html is saved and Quke will display it in your default browser.
+# This can be useful to diagnose why something has failed, but there are times
+# you may not want Quke to do this.
+display_failures: true
+
+# Capybara will attempt to find an element for a period of time, rather than
+# immediately failing because the element cannot be found. This defaults to 2
+# seconds. However if the site you are working with is slow or features
+# elements that take some time to load you can increase this default.
+max_wait_time: 5
+
+# If set Quke will tell Cucumber to output to the console using its
+# 'progress' formatter (simply displays a . for each passing scenario and F for
+# each failing one), rather than the default 'pretty' which displays each
+# scenario in detail.
+# If you don't need to see the detail on each run, this might be easier to
+# follow than the detailed output you see using the default 'pretty' print
+# format.
+print_progress: false
+
+# Anything you place under the 'custom' node in the `.config.yml` file will be
+# available within your steps and page objects by calling
+# `Quke::Quke.config.custom`. So using the example below we could access its
+# values in the following ways
+#
+# Quke::Quke.config.custom["default_org_name"] # = "Testy Ltd"
+# Quke::Quke.config.custom["accounts"]["account2"]["username"] # = "john.doe@example.gov.uk"
+# Quke::Quke.config.custom["urls"]["front_end"] # = "http://myservice.service.gov.uk"
+#
+# As long as what you add is valid YAML (check with a tool like
+# http://www.yamllint.com/) Quke will be able to pick it up and make it
+# available in your tests.
+custom:
+  accounts:
+    SystemUser:
+      username: applicant1@example.com
+      username2: applicant2@example.com
+      password: Abcde12345
+  urls:
+    front_office: "https://fra-pre.aws.defra.cloud"
+    back_office: "https://fra-admin-pre.aws.defra.cloud"

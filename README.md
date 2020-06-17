@@ -31,49 +31,11 @@ bundle install
 
 ## Configuration
 
-You can figure how the project runs using [Quke config files](https://github.com/DEFRA/quke#configuration). Before executing this project for the first time you'll need to create an initial `.config.yml` file.
+You can figure how the project runs using [Quke config files](https://github.com/DEFRA/quke#configuration).
 
-```bash
-touch .config.yml
-```
+Quke relies on yaml files to configure how the tests are run, the default being `.config.yml`.
 
-Into that file you'll need to add as a minimum this, replacing the example values with ones relevant to the environment under test.
-
-```yaml
-app_host: 'https://urlofenvironmenttotest.example.com'
-custom:
-  accounts:
-    SystemUser:
-      username: system.user@example.com
-      password: SystemUserPassword1
-```
-
-If left as that by default when **Quke** is executed it will run against your selected environment using the headless browser **PhantomJS**.
-
-### Custom FRAE config
-
-Recently we have needed to add special logic for running the tests in our environments (dev, QA and Pre-prod). Though fine locally tests are failing if the a submit button is 'off the page' i.e. you would need to scroll to click it. Because of this when setting up the tests to run automatically from the Jenkins slave you will need to add the following to the `.config.yml`.
-
-```yaml
-custom:
-  window_size:
-    width: 1000
-    height: 2000
-```
-
-The project now includes logic to look for this and if present will resize the window accordingly. Ideally this situation should be periodically tested to see if this workaround is still required.
-
-### Back office
-
-The project contains logic to automatically determine the URL to the back office, by assuming `app_host:` is the front office URL for one of our standard environments (development, QA, pre-prod or production).
-
-This means you can run all the tests, even though you have only given **Quke** details for the front office.
-
-However if you're not running the project against one of these standard environments (for example you are running against a deployment in [Heroku](https://heroku.com), or something you have running locally) you can override this logic and simply tell **Quke** the back office URL via an environment variable.
-
-```bash
-FRAE_BO_URL="http://localhost:3001" bundle exec quke --tags ~@ci
-```
+If left as that by default when Quke is executed it will run against your selected environment using Chrome.
 
 ## Execution
 
@@ -88,6 +50,16 @@ You can create [multiple config files](https://github.com/DEFRA/quke#multiple-co
 ```bash
 QUKE_CONFIG='chrome.config.yml' bundle exec quke
 ```
+
+### Rake tasks
+
+Within this project a series of [Rake](https://github.com/ruby/rake) tasks have been added. Each rake task is configured to run one of the configuration files already setup. To see the list of available commands run
+
+```bash
+bundle exec rake -T
+```
+
+You can then run your chosen configuration e.g. `bundle exec rake tst`
 
 ## Use of tags
 
@@ -138,7 +110,7 @@ All contributions should be submitted via a pull request.
 
 THIS INFORMATION IS LICENSED UNDER THE CONDITIONS OF THE OPEN GOVERNMENT LICENCE found at:
 
-http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3
+<http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3>
 
 The following attribution statement MUST be cited in your products and applications when using this information.
 
