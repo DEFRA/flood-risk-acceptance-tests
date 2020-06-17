@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddExemptionPage < SitePrism::Page
 
   elements(:exemptions, "input[name='add_exemptions[exemption_ids]']")

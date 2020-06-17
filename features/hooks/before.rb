@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Before do
   # As of 2018-01-15 it appears that tests do not complete in our environments
   # if an element is not visible on the page. This should not be a problem and

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RegistrationPage < SitePrism::Page
 
   element(:edit_address, "#registration-details .btn:first-of-type")

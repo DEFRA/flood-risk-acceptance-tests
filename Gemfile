@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 gem "quke",
@@ -8,6 +10,6 @@ gem "quke",
 # with quke.
 gem "rake"
 
-# We use rubocop in all our Ruby based projects to try and ensure consistency
-# in the code we write across all our projects.
-gem "rubocop", require: false
+# Gem used by the Defra ruby services team to ensure a consistent style across
+# our code base
+gem "defra_ruby_style"

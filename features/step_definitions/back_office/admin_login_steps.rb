@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given(/^I have a valid username and password$/) do
   # Back office login page
   @app.login_page.submit(

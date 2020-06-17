@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GridReferencePage < SitePrism::Page
 
   element(:grid_reference, "input#grid_reference_grid_reference")

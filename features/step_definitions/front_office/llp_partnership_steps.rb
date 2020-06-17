@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given(/^I am a limited liability partnership$/) do
   # User type page
   @app.user_type_page.submit(org_type: "limited_liability_partnership")

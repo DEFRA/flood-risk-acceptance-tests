@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RegistrationNumberPage < SitePrism::Page
 
   element(:ltd_reg_number, "input#limited_company_number_registration_number")

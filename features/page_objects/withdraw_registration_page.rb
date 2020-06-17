@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WithdrawRegistrationPage < SitePrism::Page
 
   element(:comment, "#admin_enrollment_exemptions_withdraw_comment")

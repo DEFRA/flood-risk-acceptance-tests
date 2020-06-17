@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CheckExemptionsPage < SitePrism::Page
 
   element(:add_another_exemption, "input[name='Add another exemption']")

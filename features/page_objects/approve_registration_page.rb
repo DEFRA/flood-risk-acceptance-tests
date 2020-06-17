@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApproveRegistrationPage < SitePrism::Page
 
   element(:asset_found, "#admin_enrollment_exemptions_approve_asset_found")

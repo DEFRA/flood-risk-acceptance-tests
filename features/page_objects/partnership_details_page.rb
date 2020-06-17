@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PartnershipPage < SitePrism::Page
 
   element(:add_partner_link, "a[href*='/partners/partnership/edit']")
