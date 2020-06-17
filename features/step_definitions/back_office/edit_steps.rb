@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When(/^I "([^"]*)" a submitted registration$/) do |action|
 
   # search page

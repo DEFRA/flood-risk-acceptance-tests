@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AdminNavBarSection < SitePrism::Section
 
   # IMPORTANT! Because of the way the nav-bar works in order to see the options

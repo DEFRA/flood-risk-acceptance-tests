@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SearchPage < SitePrism::Page
 
   element(:alert_success, "div.alert-success[role='alert']", text: "successfully signed in")

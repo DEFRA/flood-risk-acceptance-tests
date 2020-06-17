@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddressPage < SitePrism::Page
 
   element(:show_list, "input#address_match_selection")

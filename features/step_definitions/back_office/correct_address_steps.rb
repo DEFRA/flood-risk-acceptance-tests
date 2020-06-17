@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given(/^I get to the check your answers page$/) do
   @app.search_page.nav_bar.registrations_menu.click
   @app.search_page.nav_bar.new_option.click

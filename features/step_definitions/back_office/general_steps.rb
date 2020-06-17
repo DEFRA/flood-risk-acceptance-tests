@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When(/^I register a flood risk activity exemption for a customer$/) do
 
   @app.search_page.nav_bar.registrations_menu.click

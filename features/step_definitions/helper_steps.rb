@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # A set of helper steps, of more use when developing new features and not
 # specific to any given feature or scenario.
 

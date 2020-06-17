@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given(/^I am an external user$/) do
 
   @app = App.new
@@ -71,7 +73,6 @@ Then(/^I will be asked to give the approximate length of dredging planned$/) do
 
 end
 
-# rubocop:disable Lint/HandleExceptions
 Then(/^I will NOT be asked to give the approximate length of dredging planned$/) do
 
   # The previous step is assumed to be 'I select exemption FRA#' which does not
@@ -86,7 +87,6 @@ Then(/^I will NOT be asked to give the approximate length of dredging planned$/)
   end
 
 end
-# rubocop:enable Lint/HandleExceptions
 
 Given(/^I then opt to change FRA(\d+)$/) do |code|
 

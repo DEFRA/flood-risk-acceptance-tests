@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 And(/^complete the remaining steps as an individual$/) do
 
   # Organisation name page

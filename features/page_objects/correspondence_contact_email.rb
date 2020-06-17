@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CorrespondenceContactEmailPage < SitePrism::Page
 
   element(:back_link, ".back-link")

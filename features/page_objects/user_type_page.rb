@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserTypePage < SitePrism::Page
 
   elements(:org_types, "input[name='user_type[org_type]']")
