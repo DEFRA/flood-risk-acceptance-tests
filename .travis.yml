@@ -1,5 +1,5 @@
 language: ruby
-rvm: 2.4.2
+rvm: 2.7.1
 cache: bundler
 
 # Travis CI clones repositories to a depth of 50 commits, which is only really
