@@ -1,0 +1,41 @@
+name: CI
+
+on: push
+
+jobs:
+  build:
+    # You must use a Linux environment when using service containers or container jobs
+    runs-on: ubuntu-latest
+
+    steps:
+      # Downloads a copy of the code in your repository before running CI tests
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of sonarcloud analysis
+
+      # Check for 'temporary' tags i.e. tags often used when working on a feature/scenario but which we don't want
+      # appearing in the final commit to main
+      #
+      # Reworking of https://stackoverflow.com/a/21788642/6117745
+      - name: Temporary tag check
+        run: |
+          ! grep -r --include="*.feature" "@wip\|@focus" features/
+
+      # We don't have to specify the ruby version, or grab it from .ruby-verion. This action supports reading the
+      # version from .ruby-verion itself
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+      # Run linting first. No point running the tests if there is a linting issue
+      - name: Run lint check
+        run: |
+          bundle exec rubocop
+
+      # We don't have unit tests in this project. We also can't access the service as its hidden behind a VPN. Instead
+      # we run a special CI test to confirm we haven't broken being able to run the project
+      - name: Run build test
+        run: |
+          bundle exec rake ci
