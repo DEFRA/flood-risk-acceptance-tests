@@ -1,6 +1,6 @@
 # Flood risk acceptance tests
 
-[![Build Status](https://travis-ci.com/DEFRA/flood-risk-acceptance-tests.svg?branch=main)](https://travis-ci.com/DEFRA/flood-risk-acceptance-tests)
+![Build Status](https://github.com/DEFRA/flood-risk-acceptance-tests/workflows/CI/badge.svg?branch=main)
 [![security](https://hakiri.io/github/DEFRA/flood-risk-acceptance-tests/main.svg)](https://hakiri.io/github/DEFRA/flood-risk-acceptance-tests/main)
 
 You may need an environmental permit if you want to work in, over, under or near a main river or flood or sea defence. Some flood risk activities are exempt from needing a permit and you can carry out the work if you [register an exemption](https://www.gov.uk/guidance/register-your-flood-risk-exemption-environmental-permits).
