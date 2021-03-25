@@ -6,4 +6,8 @@ class CheckYourAnswersPage < SitePrism::Page
 
   element(:submit_button, "input[name='commit']")
 
+  def submit
+    submit_button.click
+  end
+
 end

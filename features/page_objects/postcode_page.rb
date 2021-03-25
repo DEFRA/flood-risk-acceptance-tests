@@ -23,5 +23,4 @@ class PostCodePage < SitePrism::Page
     submit_button.click
   end
   # rubocop:enable Metrics/CyclomaticComplexity
-
 end

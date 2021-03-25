@@ -14,6 +14,7 @@ Given(/^I am a limited company$/) do
   @app.postcode_page.submit(ltd_company_postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
+  expect(page).to have_content("I can’t find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
@@ -30,17 +31,20 @@ Given(/^I am a limited company$/) do
   )
 
   # Correspondence contact email address page
+  expect(@app.correspondence_contact_email_page).to have_content("What’s the email address")
   @app.correspondence_contact_email_page.submit(
     email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
     confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"]
   )
 
   # Email someone else page
+  expect(@app.email_someone_else_page).to have_content("confirmation email")
   @app.email_someone_else_page.submit(
     email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"],
     confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"]
   )
 
   # Check your answers page
-  @app.check_your_answers_page.submit_button.click
+  expect(@app.check_your_answers_page).to have_content("Check your answers")
+  @app.check_your_answers_page.submit
 end

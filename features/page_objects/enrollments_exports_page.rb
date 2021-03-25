@@ -33,5 +33,4 @@ class EnrollmentExportsPage < SitePrism::Page
     request_export.click
   end
   # rubocop:enable Metrics/CyclomaticComplexity
-
 end

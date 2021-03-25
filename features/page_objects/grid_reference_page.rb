@@ -11,7 +11,6 @@ class GridReferencePage < SitePrism::Page
     grid_reference.set(args[:grid_reference]) if args.key?(:grid_reference)
     description.set(args[:description]) if args.key?(:description)
     dredging_length.set(args[:dredging_length]) if args.key?(:dredging_length)
-
     submit_button.click
   end
 
