@@ -10,7 +10,7 @@ class OrganisationNamePage < SitePrism::Page
   element(:individual_name, "input#individual_name_name")
 
   element(:submit_button, "input[name='commit']")
-
+  # rubocop:disable Metrics/CyclomaticComplexity
   def submit(args = {})
     local_authority_name.set(args[:local_authority_name]) if args.key?(:local_authority_name)
     ltd_company_name.set(args[:ltd_company_name]) if args.key?(:ltd_company_name)
@@ -21,5 +21,5 @@ class OrganisationNamePage < SitePrism::Page
 
     submit_button.click
   end
-
+  # rubocop:enable Metrics/CyclomaticComplexity
 end
