@@ -11,6 +11,7 @@ Given(/^I am a partnership$/) do
   @app.postcode_page.submit(partnership_postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
+  expect(page).to have_content("I can’t find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
@@ -26,15 +27,18 @@ Given(/^I am a partnership$/) do
   # Postcode page
   # We can just click submit because the page pre-populates the postcode lookup
   # field with the previously entered postcode
+  expect(page).to have_content("BS1 5AH")
   @app.postcode_page.submit_button.click
 
   # Address page - select address from post code lookup list
+  expect(page).to have_content("I can’t find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
   # Partnership details page - again!
   # The continue button should now be visible
+  expect(@app.partnership_details_page).to have_content("Business partners you’ve added to this registration")
   @app.partnership_details_page.submit_button.click
 
   # Correspondence contact name page
@@ -49,19 +53,22 @@ Given(/^I am a partnership$/) do
   )
 
   # Correspondence contact email address page
+  expect(@app.correspondence_contact_email_page).to have_content("What’s the email address")
   @app.correspondence_contact_email_page.submit(
     email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
     confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"]
   )
 
   # Email someone else page
+  expect(@app.email_someone_else_page).to have_content("confirmation email")
   @app.email_someone_else_page.submit(
     email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"],
     confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"]
   )
 
   # Check your answers page
-  @app.check_your_answers_page.submit_button.click
+  expect(@app.check_your_answers_page).to have_content("Check your answers")
+  @app.check_your_answers_page.submit
 end
 
 And(/^add "([^"]*)" as the first partner$/) do |name|
@@ -70,9 +77,11 @@ And(/^add "([^"]*)" as the first partner$/) do |name|
   @app.organisation_name_page.submit(partnership_full_name: name)
 
   # Postcode page
+  expect(page).to have_content("postcode")
   @app.postcode_page.submit(partnership_postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
+  expect(page).to have_content("I can’t find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
@@ -90,9 +99,11 @@ And(/^add "([^"]*)" as a partner$/) do |name|
   # Postcode page
   # We can just click submit because the page pre-populates the postcode lookup
   # field with the previously entered postcode
+  expect(@app.postcode_page).to have_content("the address")
   @app.postcode_page.submit_button.click
 
   # Address page - select address from post code lookup list
+  expect(@app.address_page).to have_content("I can’t find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
@@ -110,15 +121,18 @@ And(/^add "([^"]*)" as the last partner$/) do |name|
   # Postcode page
   # We can just click submit because the page pre-populates the postcode lookup
   # field with the previously entered postcode
+  expect(@app.postcode_page).to have_content("What’s the address")
   @app.postcode_page.submit_button.click
 
   # Address page - select address from post code lookup list
+  expect(@app.address_page).to have_content("I can’t find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
 
   # Partnership details page
   # The continue button should now be visible
+  expect(@app.partnership_details_page).to have_content("Business partners you’ve added to this registration")
   @app.partnership_details_page.submit_button.click
 
 end
@@ -138,9 +152,8 @@ But(/^then remove "([^"]*)" from the partners list$/) do |name|
 end
 
 Then(/^I will just see the remaining 2 partners$/) do
-
+  sleep(1)
   expect(@app.partnership_details_page.remove_links.length).to eq(2)
   expect(page).to have_content("Steve Rogers")
   expect(page).to have_content("Tony Stark")
-
 end

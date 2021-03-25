@@ -1,0 +1,134 @@
+# Normally Capybara expects to be testing an in-process Rack application, but
+# we're using it to talk to a remote host. Users of Quke can set what this
+# will be by simply setting `app_host`. You can then use it directly using
+# Capybara `visit('/Main_Page')` or `visit('/')` rather than having to repeat
+# the full url each time
+app_host: 'https://fra-dev.aws.defra.cloud'
+
+# Tells Quke which browser to use for testing. Choices are firefox, chrome, and
+# browserstack, with the default being chrome
+driver: browserstack
+
+# Add a pause (in seconds) between steps so you can visually track how the
+# browser is responding. Only useful if using a non-headless browser. The
+# default is 0
+pause: 0
+
+# Specify whether Quke should stop all tests once an error occurs. Useful in
+# Continuous Integration (CI) environments where a quick Yes/No is preferable to
+# a detailed response. By default Quke sets this to false if not set in the
+# config.
+stop_on_error: false
+
+# Capybara will attempt to find an element for a period of time, rather than
+# immediately failing because the element cannot be found. This defaults to 2
+# seconds. However if the site you are working with is slow or features
+# elements that take some time to load you can increase this default.
+max_wait_time: 60
+
+# Anything you place under the 'custom' node in the `.config.yml` file will be
+# available within your steps and page objects by calling
+# `Quke::Quke.config.custom`. So using the example below we could access its
+# values in the following ways
+#
+# Quke::Quke.config.custom["default_org_name"] # = "Testy Ltd"
+# Quke::Quke.config.custom["accounts"]["account2"]["username"] # = "john.doe@example.gov.uk"
+# Quke::Quke.config.custom["urls"]["front_office"] # = "http://myservice.service.gov.uk"
+#
+# As long as what you add is valid YAML (check with a tool like
+# http://www.yamllint.com/) Quke will be able to pick it up and make it
+# available in your tests.
+custom:
+  accounts:
+    SystemUser:
+      username: applicant1@example.com
+      username2: applicant2@example.com
+      password: Abcde12345
+  urls:
+    front_office: "https://fra-dev.aws.defra.cloud"
+    back_office: "https://fra-admin-dev.aws.defra.cloud"
+
+# If you are running Quke behind a proxy you can configure the proxy details
+# here. You'll need either the hostname or IP of the proxy server (don't include
+# the http:// bit) and the port number (typically 8080). Currently proxy
+# settings will only be applied if you are using the PhantomJS, Chrome or
+# Firefox drivers.
+# proxy:
+#   host: '10.10.2.70'
+#   port: 8080
+  # In some cases you may also need to tell the browser (driver) not to use the
+  # proxy for local or specific connections. For this simply provide a comma
+  # separated list of addresses.
+  #
+  # IMPORTANT NOTE! phantomjs does not currently support this option. If you
+  # have to go via a proxy server for external connections, but not local ones
+  # you will be limited to using either the Chrome or Firefox drivers.
+  # no_proxy: '127.0.0.1,192.168.0.1'
+
+# If you select the browserstack driver, there are a number of options you
+# can pass through to setup your browserstack tests, username and auth_key
+# being the critical ones.
+# Please see https://www.browserstack.com/automate/capabilities for more details
+browserstack:
+  # To run your tests with browserstack you must provide a username and auth_key
+  # as a minimum.
+  # If you don't want to put these credentials in the config file (because you
+  # want to commit it to source control), Quke will also check for the existance
+  # of the environment variables BROWSERSTACK_USERNAME and BROWSERSTACK_AUTH_KEY
+  # username:
+  # auth_key:
+
+  # If you want to use local testing you must provide a key. You can find this
+  # in Browserstack once logged in under settings. Its typically the same value
+  # as the auth_key above.
+  # If you don't want to put this credential in the config file (because you
+  # want to commit it to source control), Quke will also check for the existance
+  # of the environment variable BROWSERSTACK_LOCAL_KEY
+  # local_key:
+
+  # Anything set under capabilities will be passed directly by Quke to
+  # browserstack as means of configuring the test.
+  # So the config keys (e.g. build, project, name) you set should match a real
+  # browserstack capability, and the value exist in the range it expects. See
+  # for further reference on browserstack capabilities
+  # https://www.browserstack.com/automate/capabilities
+  # https://www.browserstack.com/automate/ruby#configure-capabilities
+  capabilities:
+    # Keep track of all your automated tests using the build and project
+    # capabilities. Group your tests into builds, and builds further into
+    # projects
+    project: 'FRAE'
+    build: 'Flood risk activity exemptions front office tests'
+    # Allows you to specify an identifier for the test run.
+    # If you intend to repeat a test this might not be that applicable, but in
+    # the case of one off tests it might be useful
+    name: 'Regression tests'
+
+    # To avoid invalid certificate errors while testing set acceptSslCerts to
+    # true. This is not listed on the general capabilities page but is here
+    # https://www.browserstack.com/automate/ruby#self-signed-certificates
+    acceptSslCerts: true
+    # Required if you want to generate screenshots at various steps in your test
+    # test. Browserstack default is false
+    browserstack.debug: true
+    # Required if you want to enable video recording during your test.
+    # Browserstack default is true
+    browserstack.video: true
+    # Required if you need to test a locally hosted (e.g. http://localhost:300)
+    # or private internal web site. Browserstack has a feature called local
+    # testing that Quke also supports, but to use
+    # - Browserstack must be your selected driver
+    # - You must have set local_key above
+    # - You must this value to true
+    browserstack.local: true
+    # Another setting not listed, setting the following will prevent any values
+    # you pass in, for example when filling in a form, from appearing in the
+    # logs. General use case is to prevent passwords being exposed, but beware
+    # that all input will be masked in the logs if set.
+    browserstack.maskSendKeys: true
+
+    # https://www.browserstack.com/automate/capabilities
+    browser: Safari
+    os: 'OS X'
+    browser_version: '14.0'
+    os_version: 'Big Sur'

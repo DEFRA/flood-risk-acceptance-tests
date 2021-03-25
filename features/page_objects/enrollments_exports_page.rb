@@ -21,7 +21,6 @@ class EnrollmentExportsPage < SitePrism::Page
 
   section(:nav_bar, AdminNavBarSection, ".add-bottom-margin .container")
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   def submit(args = {})
     from_day.select(args[:from_day]) if args.key?(:from_day)
     from_month.select(args[:from_month]) if args.key?(:from_month)
@@ -32,6 +31,5 @@ class EnrollmentExportsPage < SitePrism::Page
     to_year.select(args[:to_year]) if args.key?(:to_year)
     request_export.click
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
 end

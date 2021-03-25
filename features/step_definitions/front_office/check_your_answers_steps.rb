@@ -25,12 +25,14 @@ And(/^complete the remaining steps as an individual$/) do
   )
 
   # Correspondence contact email address page
+  expect(@app.correspondence_contact_email_page).to have_content("What’s the email address")
   @app.correspondence_contact_email_page.submit(
     email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
     confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"]
   )
 
   # Email someone else page
+  expect(@app.email_someone_else_page).to have_content("confirmation email")
   @app.email_someone_else_page.submit_button.click
 
 end

@@ -22,12 +22,14 @@ Given(/^I am an unknown user$/) do
 end
 
 Given(/^I register exemption FRA(\d+)$/) do |code|
-
+  expect(@app.add_exemption_page).to have_content("Select the exemption you want to register")
   @app.add_exemption_page.submit(exemption: "FRA#{code}")
 
-  expect(page).to have_content("FRA#{code}")
+  expect(@app.check_exemptions_page).to have_content("FRA#{code}")
+  expect(@app.check_exemptions_page).to have_content("Confirm your exemption")
   @app.check_exemptions_page.submit_button.click
 
+  expect(@app.grid_reference_page).to have_content("activity")
   @app.grid_reference_page.submit(
     grid_reference: "ST 58132 72695",
     description: "Location of activity"
@@ -50,9 +52,12 @@ When(/^I select exemption FRA(\d+) as a "([^"]*)"$/) do |code, org_type|
 
   # Check exemptions page
   expect(page).to have_content("FRA#{code}")
+  expect(page).to have_content("Confirm your exemption")
+
   @app.check_exemptions_page.submit_button.click
 
   # Grid reference page
+  expect(@app.grid_reference_page).to have_content("National Grid reference")
   @app.grid_reference_page.submit(
     grid_reference: "ST 58132 72695",
     description: "Location of activity"
@@ -67,6 +72,7 @@ Then(/^I will be asked to give the approximate length of dredging planned$/) do
 
   # The previous step is assumed to be 'I select exemption FRA#' which does not
   # click the submit button, hence its the first action we have to take here.
+  expect(page).to have_content("Confirm your exemption")
   @app.check_exemptions_page.submit_button.click
 
   expect(@app.grid_reference_page.dredging_length).not_to be_nil
@@ -77,6 +83,7 @@ Then(/^I will NOT be asked to give the approximate length of dredging planned$/)
 
   # The previous step is assumed to be 'I select exemption FRA#' which does not
   # click the submit button, hence its the first action we have to take here.
+  expect(page).to have_content("Confirm your exemption")
   @app.check_exemptions_page.submit_button.click
 
   begin
@@ -103,11 +110,12 @@ Then(/^I will be taken back to the add exemptions page$/) do
 end
 
 When(/^I confirm my registration$/) do
-  @app.declaration_page.declaration_button.click
+  expect(page).to have_content("Declaration")
+  @app.declaration_page.submit
 end
 
 Then(/^I will see confirmation my registration has been submitted$/) do
-  expect(page).to have_content "Registration submitted"
+  expect(@app.confirmation_page).to have_content "Registration submitted"
 end
 
 And(/^give "([^"]*)" as the contact$/) do |name|
@@ -124,12 +132,14 @@ And(/^give "([^"]*)" as the contact$/) do |name|
   )
 
   # Correspondence contact email address page
+  expect(@app.correspondence_contact_email_page).to have_content("What’s the email address")
   @app.correspondence_contact_email_page.submit(
     email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"],
     confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username"]
   )
 
   # Email someone else page
+  expect(@app.email_someone_else_page).to have_content("confirmation email")
   @app.email_someone_else_page.submit_button.click
 
 end
