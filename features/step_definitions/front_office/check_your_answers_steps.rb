@@ -6,11 +6,11 @@ And(/^complete the remaining steps as an individual$/) do
   @app.organisation_name_page.submit(individual_name: "Napoleon Solo")
 
   # Postcode page
-  @app.postcode_page.submit(individual_postcode: "BS1 5AH")
+  @app.postcode_page.submit(individual_postcode: "S60 1BY")
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
-    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "ENVIRONMENT AGENCY, BOW BRIDGE CLOSE, ROTHERHAM, S60 1BY"
   )
 
   # Correspondence contact name page
@@ -45,7 +45,7 @@ Then(/^I will see all the details I entered as an individual$/) do
   expect(page).to have_content "Location of activity"
   expect(page).to have_content "Individual"
   expect(page).to have_content "Napoleon Solo"
-  expect(page).to have_content "HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+  expect(page).to have_content "BOW BRIDGE CLOSE, ROTHERHAM, S60 1BY"
   expect(page).to have_content "Napoleon Solo (Owner)"
   expect(page).to have_content "01234567899"
   # email address removed as this currently changes by environment
@@ -59,9 +59,9 @@ Then(/^I will see all the details I entered as a partnership$/) do
   expect(page).to have_content "ST 58132 72695"
   expect(page).to have_content "Location of activity"
   expect(page).to have_content "Partnership"
-  expect(page).to have_content "Steve Rogers, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
-  expect(page).to have_content "Bruce Banner, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
-  expect(page).to have_content "Tony Stark, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+  expect(page).to have_content "Steve Rogers, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
+  expect(page).to have_content "Bruce Banner, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
+  expect(page).to have_content "Tony Stark, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
   expect(page).to have_content "Nick Fury (Project Manager)"
   expect(page).to have_content "01234567899"
   # email address removed as this currently changes by environment

@@ -78,12 +78,12 @@ And(/^add "([^"]*)" as the first partner$/) do |name|
 
   # Postcode page
   expect(page).to have_content("postcode")
-  @app.postcode_page.submit(partnership_postcode: "BS1 5AH")
+  @app.postcode_page.submit(partnership_postcode: "CA11 9BP")
 
   # Address page - select address from post code lookup list
   expect(page).to have_content("I can’t find the address in the list")
   @app.address_page.submit(
-    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "ENVIRONMENT AGENCY, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
   )
 
 end
@@ -105,7 +105,7 @@ And(/^add "([^"]*)" as a partner$/) do |name|
   # Address page - select address from post code lookup list
   expect(@app.address_page).to have_content("I can’t find the address in the list")
   @app.address_page.submit(
-    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "ENVIRONMENT AGENCY, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
   )
 
 end
@@ -127,7 +127,7 @@ And(/^add "([^"]*)" as the last partner$/) do |name|
   # Address page - select address from post code lookup list
   expect(@app.address_page).to have_content("I can’t find the address in the list")
   @app.address_page.submit(
-    result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
+    result: "ENVIRONMENT AGENCY, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
   )
 
   # Partnership details page
