@@ -100,6 +100,29 @@ To have consistency across the project the following tags are defined and should
 
 It's also common practice to use a custom tag whilst working on a new feature or scenario e.g. `@focus` or `@wip`. That is perfectly acceptable but please ensure they are removed before your change is merged.
 
+### Accessibility
+
+This repository includes the ability to check the currently loaded page for accessibility violations. It uses [axe-core-capybara](https://github.com/dequelabs/axe-core-gems/blob/develop/packages/axe-core-capybara/) and [axe-core-cucumber](https://github.com/dequelabs/axe-core-gems/blob/develop/packages/axe-core-cucumber).
+
+To call it, use the following step:
+
+```gherkin
+Then the page should be axe clean
+
+# or call this within another step using
+step("the page should be axe clean")
+```
+
+This calls all of Axe's accessibility rules and is useful to find best practice. However, our minimum standard is to focus on Web Content Accessibility Guidelines v2.1 to levels A and AA, so we want the tests to pass if so. Use this step to reduce the scope:
+
+```gherkin
+Then the page should be axe clean according to: wcag21a, wcag21aa
+```
+
+Also refer to [Axe API documentation](https://github.com/dequelabs/axe-core/blob/develop/doc/API.md) for more detail.
+
+Finally, remember that automated testing is not a substitute for manual testing.
+
 ## Contributing to this project
 
 If you have an idea you'd like to contribute please log an issue.

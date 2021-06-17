@@ -13,3 +13,7 @@ gem "rake"
 # Gem used by the Defra ruby services team to ensure a consistent style across
 # our code base
 gem "defra_ruby_style"
+
+# Test for accessibility:
+gem "axe-core-capybara"
+gem "axe-core-cucumber"
