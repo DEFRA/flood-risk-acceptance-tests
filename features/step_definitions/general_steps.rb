@@ -23,18 +23,20 @@ end
 
 Given(/^I register exemption FRA(\d+)$/) do |code|
   expect(@app.add_exemption_page).to have_content("Select the exemption you want to register")
+  check_for_accessibility
   @app.add_exemption_page.submit(exemption: "FRA#{code}")
 
   expect(@app.check_exemptions_page).to have_content("FRA#{code}")
   expect(@app.check_exemptions_page).to have_content("Confirm your exemption")
+  check_for_accessibility
   @app.check_exemptions_page.submit_button.click
 
   expect(@app.grid_reference_page).to have_content("activity")
+  check_for_accessibility
   @app.grid_reference_page.submit(
     grid_reference: "ST 58132 72695",
     description: "Location of activity"
   )
-
 end
 
 Given(/^I select exemption FRA(\d+)$/) do |code|
