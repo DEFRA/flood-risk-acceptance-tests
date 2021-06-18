@@ -5,9 +5,7 @@ When(/^I register a flood risk activity exemption for a customer$/) do
   @app.search_page.nav_bar.registrations_menu.click
   @app.search_page.nav_bar.new_option.click
 
-  @app.add_exemption_page.submit(
-    exemption: "FRA2"
-  )
+  @app.add_exemption_page.submit(exemption: 1)
 
   expect(page).to have_content("FRA2")
   expect(page).to have_content("Confirm your exemption")

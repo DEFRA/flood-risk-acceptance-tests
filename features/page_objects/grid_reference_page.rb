@@ -2,9 +2,9 @@
 
 class GridReferencePage < SitePrism::Page
 
-  element(:grid_reference, "input#grid_reference_grid_reference")
+  element(:grid_reference, "input#grid-reference-grid-reference-field")
   element(:description, "textarea[name='grid_reference[description]']")
-  element(:dredging_length, "input#grid_reference_dredging_length")
+  element(:dredging_length, "input#grid-reference-dredging-length-field")
   element(:submit_button, "input[name='commit']")
 
   def submit(args = {})

@@ -24,7 +24,7 @@ end
 Given(/^I register exemption FRA(\d+)$/) do |code|
   expect(@app.add_exemption_page).to have_content("Select the exemption you want to register")
   check_for_accessibility
-  @app.add_exemption_page.submit(exemption: "FRA#{code}")
+  @app.add_exemption_page.submit(exemption: (code - 1))
 
   expect(@app.check_exemptions_page).to have_content("FRA#{code}")
   expect(@app.check_exemptions_page).to have_content("Confirm your exemption")
@@ -41,7 +41,7 @@ end
 
 Given(/^I select exemption FRA(\d+)$/) do |code|
 
-  @app.add_exemption_page.submit(exemption: "FRA#{code}")
+  @app.add_exemption_page.submit(exemption: (code - 1))
 
   expect(page).to have_content("FRA#{code}")
 
@@ -50,7 +50,8 @@ end
 When(/^I select exemption FRA(\d+) as a "([^"]*)"$/) do |code, org_type|
 
   # Add exemption page
-  @app.add_exemption_page.submit(exemption: "FRA#{code}")
+  expect(page).to have_content("Select the exemption you want to register")
+  @app.add_exemption_page.submit(exemption: (code - 1))
 
   # Check exemptions page
   expect(page).to have_content("FRA#{code}")
