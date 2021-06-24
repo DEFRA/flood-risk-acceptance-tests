@@ -5,7 +5,7 @@ Feature: Partnership specific functionality
   And therefore have extra functionality to manage this
   To help ensure what I provide is complete and correct
 
-  @frontoffice
+  @frontoffice @iphone
   Scenario: Add 3 partners then remove one
   Given I am an external user
    When I select exemption FRA17 as a "partnership"
