@@ -121,7 +121,7 @@ And(/^add "([^"]*)" as the last partner$/) do |name|
   # Postcode page
   # We can just click submit because the page pre-populates the postcode lookup
   # field with the previously entered postcode
-  expect(@app.postcode_page).to have_content("What’s the address")
+  expect(@app.postcode_page).to have_content("Find the address")
   @app.postcode_page.submit_button.click
 
   # Address page - select address from post code lookup list

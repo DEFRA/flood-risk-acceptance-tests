@@ -2,7 +2,7 @@
 
 class UserTypePage < SitePrism::Page
 
-  elements(:org_types, "input[name='user_type[org_type]']")
+  elements(:org_types, "input[name='user_type[org_type]']", visible: false)
 
   element(:submit_button, "input[name='commit']")
 

@@ -16,7 +16,7 @@ class AddExemptionPage < SitePrism::Page
   def exemption_checked?(code)
     return false if code.nil?
 
-    exemptions.find { |chk| chk["data-code"] == code }.checked?
+    exemptions.find { |chk| chk["value"] == code.to_s }.checked?
   end
 
 end

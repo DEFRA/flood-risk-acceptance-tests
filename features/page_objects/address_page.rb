@@ -3,7 +3,7 @@
 class AddressPage < SitePrism::Page
 
   element(:show_list, "input#address_match_selection")
-  element(:results_dropdown, "select#address_match_selection")
+  element(:results_dropdown, "select[id$='uprn-field']")
 
   element(:cannot_find_address_link, "fieldset+ p .change-postcode-button")
 

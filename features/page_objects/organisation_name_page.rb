@@ -2,12 +2,12 @@
 
 class OrganisationNamePage < SitePrism::Page
 
-  element(:local_authority_name, "input#local_authority_name")
-  element(:ltd_company_name, "input#limited_company_name_name")
-  element(:llp_name, "input#limited_liability_partnership_name_name")
-  element(:other_name, "input#other_name")
-  element(:partnership_full_name, "input#partnership_full_name")
-  element(:individual_name, "input#individual_name_name")
+  element(:local_authority_name, "input#local-authority-name-field")
+  element(:ltd_company_name, "input#limited-company-name-name-field")
+  element(:llp_name, "input#limited-liability-partnership-name-name-field")
+  element(:other_name, "input#other-name-field")
+  element(:partnership_full_name, "input#partnership-full-name-field")
+  element(:individual_name, "input#individual-name-name-field")
 
   element(:submit_button, "input[name='commit']")
   def submit(args = {})

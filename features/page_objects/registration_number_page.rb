@@ -2,8 +2,8 @@
 
 class RegistrationNumberPage < SitePrism::Page
 
-  element(:ltd_reg_number, "input#limited_company_number_registration_number")
-  element(:llp_reg_number, "input#limited_liability_partnership_number_registration_number")
+  element(:ltd_reg_number, "input#limited-company-number-registration-number-field")
+  element(:llp_reg_number, "input#limited-liability-partnership-number-registration-number-field")
 
   element(:submit_button, "input[name='commit']")
 

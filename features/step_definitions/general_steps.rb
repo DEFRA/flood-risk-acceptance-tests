@@ -103,8 +103,7 @@ Given(/^I then opt to change FRA(\d+)$/) do |code|
   # We can get away with just selecting the first link because currently you can
   # only select one exemption so there will only ever be one link
   @app.check_exemptions_page.remove_links.first.click
-
-  expect(@app.add_exemption_page.exemption_checked?("FRA#{code}")).to be false
+  expect(@app.add_exemption_page.exemption_checked?(code)).to be false
 
 end
 

@@ -2,12 +2,12 @@
 
 class PostCodePage < SitePrism::Page
 
-  element(:local_authority_postcode, "input#local_authority_postcode_postcode")
-  element(:ltd_company_postcode, "input#limited_company_postcode_postcode")
-  element(:llp_postcode, "input#limited_liability_partnership_postcode_postcode")
-  element(:individual_postcode, "input#individual_postcode_postcode")
-  element(:other_postcode, "input#other_postcode_postcode")
-  element(:partnership_postcode, "input#partnership_postcode_postcode")
+  element(:local_authority_postcode, "input#local-authority-postcode-postcode-field")
+  element(:ltd_company_postcode, "input#limited-company-postcode-postcode-field")
+  element(:llp_postcode, "input#limited-liability-partnership-postcode-postcode-field")
+  element(:individual_postcode, "input#individual-postcode-postcode-field")
+  element(:other_postcode, "input#other-postcode-postcode-field")
+  element(:partnership_postcode, "input#partnership-postcode-postcode-field")
 
   element(:submit_button, "input[name='commit']")
 
