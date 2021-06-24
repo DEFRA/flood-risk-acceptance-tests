@@ -26,7 +26,8 @@ chromedriver.log
 *.log
 /log/*
 !/log/.keep
-/tmp/
+/tmp/*
+!tmp/.gitkeep 
 
 # Ruby debugger related files
 .byebug_history
