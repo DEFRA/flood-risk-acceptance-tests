@@ -3,7 +3,7 @@
 # will be by simply setting `app_host`. You can then use it directly using
 # Capybara `visit('/Main_Page')` or `visit('/')` rather than having to repeat
 # the full url each time
-app_host: 'https://fra-dev.aws.defra.cloud'
+app_host: 'https://fra-tst.aws.defra.cloud'
 
 # Tells Quke which browser to use for testing. Choices are firefox, chrome, and
 # browserstack, with the default being chrome
@@ -45,8 +45,8 @@ custom:
       username2: applicant2@example.com
       password: Abcde12345
   urls:
-    front_office: "https://fra-dev.aws.defra.cloud"
-    back_office: "https://fra-admin-dev.aws.defra.cloud"
+    front_office: "https://fra-tst.aws.defra.cloud"
+    back_office: "https://fra-admin-tst.aws.defra.cloud"
 
 # If you are running Quke behind a proxy you can configure the proxy details
 # here. You'll need either the hostname or IP of the proxy server (don't include
@@ -129,7 +129,6 @@ browserstack:
 
     # https://www.browserstack.com/automate/capabilities
     device: "iPhone XS"
-    os: 'OS X'
     os_version: '14'
     real_mobile: true
     # required to run storage clearing
