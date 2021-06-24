@@ -19,7 +19,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
-    axe-core-api (4.2.0)
+    axe-core-api (4.2.1)
       capybara
       dumb_delegator
       selenium-webdriver
@@ -28,7 +28,7 @@ GEM
     axe-core-capybara (4.2.0)
       axe-core-api
       dumb_delegator
-    axe-core-cucumber (4.2.0)
+    axe-core-cucumber (4.2.1)
       axe-core-api
       dumb_delegator
       virtus
