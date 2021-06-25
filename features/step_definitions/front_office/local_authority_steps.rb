@@ -5,10 +5,10 @@ Given(/^I am a local authority$/) do
   @app.user_type_page.submit(org_type: "local_authority")
 
   # Organisation name page
-  @app.organisation_name_page.submit(local_authority_name: "Testminster council")
+  @app.organisation_name_page.submit(org_name: "Testminster council")
 
   # Postcode page
-  @app.postcode_page.submit(local_authority_postcode: "BS1 5AH")
+  @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
   expect(page).to have_content("I can’t find the address in the list")

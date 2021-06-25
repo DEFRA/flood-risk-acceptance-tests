@@ -3,10 +3,10 @@
 And(/^complete the remaining steps as an individual$/) do
 
   # Organisation name page
-  @app.organisation_name_page.submit(individual_name: "Napoleon Solo")
+  @app.organisation_name_page.submit(org_name: "Napoleon Solo")
 
   # Postcode page
-  @app.postcode_page.submit(individual_postcode: "S60 1BY")
+  @app.postcode_page.submit(postcode: "S60 1BY")
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(

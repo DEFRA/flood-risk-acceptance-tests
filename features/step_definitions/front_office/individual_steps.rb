@@ -9,12 +9,12 @@ Given(/^I am an individual$/) do
   # Organisation name page
   expect(page).to have_content("name?")
   check_for_accessibility
-  @app.organisation_name_page.submit(individual_name: "Tina Turner")
+  @app.organisation_name_page.submit(org_name: "Tina Turner")
 
   # Postcode page
   expect(page).to have_content("address")
   check_for_accessibility
-  @app.postcode_page.submit(individual_postcode: "BS1 5AH")
+  @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
   expect(page).to have_content("I can’t find the address in the list")

@@ -5,10 +5,10 @@ Given(/^I am a partnership$/) do
   @app.user_type_page.submit(org_type: "partnership")
 
   # Organisation name page
-  @app.organisation_name_page.submit(partnership_full_name: "Fray and Bentos Associates")
+  @app.organisation_name_page.submit(org_name: "Fray and Bentos Associates")
 
   # Postcode page
-  @app.postcode_page.submit(partnership_postcode: "BS1 5AH")
+  @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
   expect(page).to have_content("I can’t find the address in the list")
@@ -22,7 +22,7 @@ Given(/^I am a partnership$/) do
   @app.partnership_details_page.add_partner_link.click
 
   # Organisation name page
-  @app.organisation_name_page.submit(partnership_full_name: "Fray and Bentos Associates")
+  @app.organisation_name_page.submit(org_name: "Fray and Bentos Associates")
 
   # Postcode page
   # We can just click submit because the page pre-populates the postcode lookup
@@ -74,11 +74,11 @@ end
 And(/^add "([^"]*)" as the first partner$/) do |name|
 
   # Organisation name page
-  @app.organisation_name_page.submit(partnership_full_name: name)
+  @app.organisation_name_page.submit(org_name: name)
 
   # Postcode page
   expect(page).to have_content("postcode")
-  @app.postcode_page.submit(partnership_postcode: "CA11 9BP")
+  @app.postcode_page.submit(postcode: "CA11 9BP")
 
   # Address page - select address from post code lookup list
   expect(page).to have_content("I can’t find the address in the list")
@@ -94,7 +94,7 @@ And(/^add "([^"]*)" as a partner$/) do |name|
   @app.partnership_details_page.add_partner_link.click
 
   # Organisation name page
-  @app.organisation_name_page.submit(partnership_full_name: name)
+  @app.organisation_name_page.submit(org_name: name)
 
   # Postcode page
   # We can just click submit because the page pre-populates the postcode lookup
@@ -116,7 +116,7 @@ And(/^add "([^"]*)" as the last partner$/) do |name|
   @app.partnership_details_page.add_partner_link.click
 
   # Organisation name page
-  @app.organisation_name_page.submit(partnership_full_name: name)
+  @app.organisation_name_page.submit(org_name: name)
 
   # Postcode page
   # We can just click submit because the page pre-populates the postcode lookup
