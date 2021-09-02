@@ -1,4 +1,4 @@
-@backoffice @wip
+@backoffice
 Feature: Registration searches in the back office
 
 Scenario: Approved registrations are displayed when searched for
