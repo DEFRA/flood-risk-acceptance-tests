@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AddressPage < SitePrism::Page
+class AddressPage < BasePage
 
   element(:show_list, "input#address_match_selection")
   element(:results_dropdown, "select[id$='uprn-field']")
@@ -11,8 +11,6 @@ class AddressPage < SitePrism::Page
   element(:street_address, "input#address_street_address")
   element(:address_locality, "input#address_locality")
   element(:address_city, "input#address_city")
-
-  element(:submit_button, "input[name='commit']")
 
   def submit(args = {})
     results_dropdown.select(args[:result]) if args.key?(:result)

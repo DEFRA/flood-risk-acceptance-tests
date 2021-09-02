@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class AddExemptionPage < SitePrism::Page
+require_relative "base_page"
+
+class AddExemptionPage < BasePage
 
   elements(:exemptions, "input[class=govuk-radios__input]", visible: false)
   elements(:exemption_label, "div[label='check box']")
-
-  element(:submit_button, "input[name='commit']")
 
   def submit(args = {})
     exemptions.find { |chk| chk["value"] == args[:exemption].to_s }.click if args.key?(:exemption)

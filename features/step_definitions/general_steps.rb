@@ -1,24 +1,9 @@
 # frozen_string_literal: true
 
-Given(/^I am an external user$/) do
-
+Given("I start a registration") do
   @app = App.new
   @app.front_office_home_page.load
-
-end
-
-Given(/^I am an internal user$/) do
-
-  @app = App.new
-  @app.login_page.load
-
-end
-
-Given(/^I am an unknown user$/) do
-
-  @app = App.new
-  visit(Quke::Quke.config.custom["urls"]["back_office"])
-
+  @app.front_office_home_page.accept_cookies
 end
 
 Given(/^I register exemption FRA(\d+)$/) do |code|
@@ -40,7 +25,6 @@ Given(/^I register exemption FRA(\d+)$/) do |code|
 end
 
 Given(/^I select exemption FRA(\d+)$/) do |code|
-
   @app.add_exemption_page.submit(exemption: (code - 1))
 
   expect(page).to have_content("FRA#{code}")
@@ -112,7 +96,7 @@ Then(/^I will be taken back to the add exemptions page$/) do
 end
 
 When(/^I confirm my registration$/) do
-  expect(page).to have_content("Declaration")
+  expect(page).to have_content("Use of your information and privacy")
   @app.declaration_page.submit
 end
 

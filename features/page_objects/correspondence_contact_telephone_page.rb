@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CorrespondenceContactTelephonePage < SitePrism::Page
+class CorrespondenceContactTelephonePage < BasePage
 
   element(:back_link, ".back-link")
 
@@ -8,8 +8,6 @@ class CorrespondenceContactTelephonePage < SitePrism::Page
     :telephone_number,
     "input[name='correspondence_contact_telephone[telephone_number]']"
   )
-
-  element(:submit_button, "input[name='commit']")
 
   def submit(args = {})
     telephone_number.set(args[:telephone_number]) if args.key?(:telephone_number)

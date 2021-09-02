@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class WithdrawRegistrationPage < SitePrism::Page
+class WithdrawRegistrationPage < BasePage
 
   element(:comment, "#admin_enrollment_exemptions_withdraw_comment")
   element(:submit_button, "input[name='commit']")

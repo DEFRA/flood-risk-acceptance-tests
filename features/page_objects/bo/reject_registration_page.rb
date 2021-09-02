@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RejectRegistrationPage < SitePrism::Page
+class RejectRegistrationPage < BasePage
 
   element(:comment, "#admin_enrollment_exemptions_reject_comment")
 

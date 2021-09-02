@@ -2,7 +2,6 @@
 
 When(/^I register a flood risk activity exemption for a customer$/) do
 
-  @app.search_page.nav_bar.registrations_menu.click
   @app.search_page.nav_bar.new_option.click
 
   @app.add_exemption_page.submit(exemption: 1)
@@ -78,7 +77,6 @@ Then(/^I will see the registration is "([^"]*)"$/) do |action|
 end
 
 When(/^I export registrations for today$/) do
-  @app.search_page.nav_bar.registrations_menu.click
   @app.search_page.nav_bar.export_option.click
 
   # finds today's date and saves them for use in export from date

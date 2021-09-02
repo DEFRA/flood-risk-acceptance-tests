@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class FrontOfficeHomePage < SitePrism::Page
+require_relative "base_page"
+
+class FrontOfficeHomePage < BasePage
 
   set_url("/enrollments/new")
-
-  element(:submit_button, "input[name='commit']")
 
 end

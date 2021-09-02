@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
-class CorrespondenceContactEmailPage < SitePrism::Page
+class CorrespondenceContactEmailPage < BasePage
 
   element(:back_link, ".back-link")
 
   element(:email, "input#correspondence-contact-email-email-address-field")
   element(:confirm_email, "input#correspondence-contact-email-email-address-confirmation-field")
-
-  element(:submit_button, "input[name='commit']")
 
   def submit(args = {})
     email.set(args[:email]) if args.key?(:email)

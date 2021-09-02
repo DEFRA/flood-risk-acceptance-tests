@@ -107,6 +107,6 @@ Then(/^I should see just one result when searching for the registration$/) do
   @app.search_page.search_field.set @exemption_number
   @app.search_page.search_button.click
 
-  expect(@app.search_page.search_results_view_btns.size).to eq(1)
+  expect(@app.search_page.search_results_status.size).to eq(1)
 
 end

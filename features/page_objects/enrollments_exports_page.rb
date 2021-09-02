@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class EnrollmentExportsPage < SitePrism::Page
+class EnrollmentExportsPage < BasePage
 
-  element(:export_alert, "div.alert-success[role='alert']")
+  element(:export_alert, ".govuk-notification-banner__heading")
   element(:from_day, "#admin_enrollment_export_from_date_3i")
   element(:from_month, "#admin_enrollment_export_from_date_2i")
   element(:from_year, "#admin_enrollment_export_from_date_1i")
@@ -19,7 +19,7 @@ class EnrollmentExportsPage < SitePrism::Page
 
   element(:latest_export_status, ".enrollment_export:first-of-type span")
 
-  section(:nav_bar, AdminNavBarSection, ".add-bottom-margin .container")
+  section(:nav_bar, AdminNavBarSection, ".govuk-header__container")
 
   def submit(args = {})
     from_day.select(args[:from_day]) if args.key?(:from_day)

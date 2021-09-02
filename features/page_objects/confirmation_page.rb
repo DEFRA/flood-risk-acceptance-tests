@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ConfirmationPage < SitePrism::Page
+class ConfirmationPage < BasePage
 
   element(:exemption_number, ".govuk-box-highlight .heading-medium")
 

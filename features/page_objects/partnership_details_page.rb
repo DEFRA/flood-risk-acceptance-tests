@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-class PartnershipPage < SitePrism::Page
+class PartnershipPage < BasePage
 
   element(:add_partner_link, "a[href*='/partners/partnership/edit']")
-
-  element(:submit_button, "input[name='commit']")
 
   elements(:remove_links, "a[data-method='delete']")
 
