@@ -9,9 +9,5 @@ Given(/^I have signed in as "([^"]*)"$/) do |user|
     password: ENV["FRAE_DEFAULT_PASSWORD"]
   )
 
-  # If we don't check for some form of confirmation that we have logged in,
-  # though the scenario will fail it will report the proceeding step as the
-  # culprit, rather than the login
-  expect(@app.search_page).to have_alert_success
-
+  expect(@app.search_page.notification).to have_content("successfully signed in")
 end

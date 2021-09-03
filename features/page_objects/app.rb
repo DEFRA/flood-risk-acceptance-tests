@@ -139,4 +139,12 @@ class App
     @last_page = EnrollmentExportsPage.new
   end
 
+  def users_page
+    @last_page = UsersPage.new
+  end
+
+  def invite_user_page
+    @last_page = InviteUserPage.new
+  end
+
 end

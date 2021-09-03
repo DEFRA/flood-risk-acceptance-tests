@@ -3,7 +3,7 @@
 class BasePage < SitePrism::Page
 
   element(:back_link, ".govuk-back-link")
-  element(:error_summary, ".govuk-error-summary__body")
+  element(:notification, ".govuk-notification-banner__heading")
   element(:heading, "h1")
   element(:content, "#main-content")
   element(:submit_button, "input[type='submit']")
