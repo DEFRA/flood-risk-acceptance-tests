@@ -6,6 +6,7 @@ Feature: NCCC user administers a flood risk activity exemptions on behalf of a c
 
   Background:
   	Given I have signed in as "super_agent@frae.gov.uk"
+   And I start a new registration
   	And I register a flood risk activity exemption for a customer
 
   @smoke

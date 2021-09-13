@@ -2,8 +2,6 @@
 
 class CorrespondenceContactNamePage < BasePage
 
-  element(:back_link, ".back-link")
-
   element(:full_name, "input[name='correspondence_contact_name[full_name]']")
   element(:position, "input[name='correspondence_contact_name[position]']")
 

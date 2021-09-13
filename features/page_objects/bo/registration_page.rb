@@ -3,8 +3,19 @@
 class RegistrationPage < BasePage
 
   element(:edit_address, "#registration-details [href$='/edit']")
-  # TODO: update this selector
-  element(:registration_status, "#registration-details+ .govuk-table .govuk-table__row:nth-child(1) .govuk-table__cell")
+  element(:registration_status, "#status")
+  element(:business_type, "#business-type")
+  element(:operator_name, "#operator-name")
+  element(:operator_address, "#address")
+
+  element(:exemption_number, "#exemption-number")
+  element(:grid_ref, "#grid-reference")
+  element(:site_description, "#site-description")
+  element(:partner_one_details, "#partner-1")
+  element(:partner_two_details, "#partner-2")
+  element(:correspondence_details, "#correspondence-contact-details")
+  element(:secondary_contact_details, "#secondary-contact-details")
+
   element(:edit_registration, "#update-enrollment-exemption-status")
   element(:change_status, "a[href$='change_status']")
   element(:withdraw, "a[href$='withdraw']")

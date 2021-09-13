@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 When("I invite a new user to access the service") do
-  @app.search_page.nav_bar.invite_user_option.click
+  @app.search_page.nav_bar.view_users_option.click
+  @app.users_page.invite_users.click
   @app.invite_user_page.submit(
     user: "Data user",
     email: "test@example.com"

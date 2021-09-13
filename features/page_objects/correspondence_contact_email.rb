@@ -2,8 +2,6 @@
 
 class CorrespondenceContactEmailPage < BasePage
 
-  element(:back_link, ".back-link")
-
   element(:email, "input#correspondence-contact-email-email-address-field")
   element(:confirm_email, "input#correspondence-contact-email-email-address-confirmation-field")
 

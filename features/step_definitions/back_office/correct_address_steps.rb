@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Given(/^I get to the check your answers page$/) do
-  @app.search_page.nav_bar.registrations_menu.click
-  @app.search_page.nav_bar.new_option.click
 
   @app.add_exemption_page.submit(exemption: 1)
 
@@ -92,11 +90,11 @@ When(/^I enter the address manually and complete the registration$/) do
   expect(@app.check_your_answers_page).to have_content("Check your answers")
   @app.check_your_answers_page.submit
 
-  @app.declaration_page.declaration_button.click
+  @app.declaration_page.submit
 
-  @exemption_number = @app.confirmation_page.exemption_number.text
+  @registration_number = @app.confirmation_page.registration_number.text
 
-  expect(@exemption_number).to start_with "EXFRA"
+  expect(@registration_number).to start_with "EXFRA"
 
 end
 
@@ -104,9 +102,7 @@ Then(/^I should see just one result when searching for the registration$/) do
 
   # search page
   @app.search_page.nav_bar.home_link.click
-  @app.search_page.search_field.set @exemption_number
-  @app.search_page.search_button.click
-
+  @app.search_page.submit(search_value: @registration_number)
   expect(@app.search_page.search_results_status.size).to eq(1)
 
 end

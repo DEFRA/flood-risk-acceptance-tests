@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ConfirmationPage < BasePage
-
-  element(:exemption_number, ".govuk-box-highlight .heading-medium")
+  # TODO: update selector
+  element(:registration_number, "div strong")
 
 end

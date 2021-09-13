@@ -2,8 +2,6 @@
 
 class EmailSomeoneElsePage < BasePage
 
-  element(:back_link, ".back-link")
-
   element(:email, "input#email-someone-else-email-address-field")
   element(:confirm_email, "input#email-someone-else-email-address-confirmation-field")
 

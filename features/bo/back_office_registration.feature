@@ -6,25 +6,21 @@ Feature: NCCC user administers a flood risk activity exemptions on behalf of a c
 
   Background:
   	Given I have signed in as "super_agent@frae.gov.uk"
+    And I start a new registration
 
   @happy_path
   Scenario: Registration of a flood risk activity exemption by NCCC staff using the backoffice system
      When I register a flood risk activity exemption for a customer
      Then I will see confirmation the registration has been submitted
 
-  # Multiple organisation addresses against applications
-  #
-  # Initially reported by NCCC that there were duplicate exemption records in
-  # the system. We found that there is no duplication of application or
-  # enrolment records, but the records that appear twice do so because they have
-  # multiple addresses listed as their ‘organisation’ address.
-  #
-  # This scenario covers the steps necessary to reproduce the problem. See
-  # https://eaflood.atlassian.net/browse/RIP-359 for more details.
+  Scenario: Registration in the backoffice where the user goes back and re-enters the address manually
+    Given I get to the check your answers page
+     And The user wishes to correct their address
+     When I enter the address manually and complete the registration
+     Then I should see just one result when searching for the registration
 
-  # @fix
-  # Scenario: Registration in the backoffice where the user goes back and re-enters the address manually
-  #   Given I get to the check your answers page
-  #    And The user wishes to correct their address
-  #    When I enter the address manually and complete the registration
-  #    Then I should see just one result when searching for the registration
+  Scenario: Partnership registration displays correct information in the registration page
+    Given I complete a partnership registration
+    When I search for the registration
+    And I select the registration from the search results
+    Then the registration details are shown

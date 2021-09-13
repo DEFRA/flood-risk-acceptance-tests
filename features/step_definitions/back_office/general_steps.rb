@@ -2,8 +2,6 @@
 
 When(/^I register a flood risk activity exemption for a customer$/) do
 
-  @app.search_page.nav_bar.new_option.click
-
   @app.add_exemption_page.submit(exemption: 1)
 
   expect(page).to have_content("FRA2")
@@ -60,14 +58,19 @@ When(/^I register a flood risk activity exemption for a customer$/) do
   expect(@app.check_your_answers_page).to have_content("Check your answers")
   @app.check_your_answers_page.submit
 
-  @app.declaration_page.declaration_button.click
+  @app.declaration_page.submit
 
-  @exemption_number = @app.confirmation_page.exemption_number.text
+  @registration_number = @app.confirmation_page.registration_number.text
 end
 
 Then(/^I will see confirmation the registration has been submitted$/) do
 
   expect(page).to have_content "Registration submitted"
+end
+
+Given("I start a new registration") do
+
+  @app.search_page.nav_bar.new_option.click
 end
 
 Then(/^I will see the registration is "([^"]*)"$/) do |action|

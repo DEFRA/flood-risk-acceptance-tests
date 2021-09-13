@@ -2,6 +2,6 @@
 
 class UsersPage < BasePage
 
-  element(:invite_users, "a[class='govuk-button'][href='/users/invitation/new']")
+  element(:invite_users, "a[href='/users/invitation/new']")
 
 end

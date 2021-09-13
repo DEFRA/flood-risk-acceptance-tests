@@ -129,3 +129,7 @@ And(/^give "([^"]*)" as the contact$/) do |name|
   @app.email_someone_else_page.submit_button.click
 
 end
+
+Then("I complete a partnership registration") do
+  partnership_registration
+end

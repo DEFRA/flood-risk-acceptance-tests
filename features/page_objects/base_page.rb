@@ -6,7 +6,7 @@ class BasePage < SitePrism::Page
   element(:notification, ".govuk-notification-banner__heading")
   element(:heading, "h1")
   element(:content, "#main-content")
-  element(:submit_button, "input[type='submit']")
+  element(:submit_button, "[type='submit']")
   element(:button, ".govuk-button")
   element(:accept_analytics_cookies, "input[value='Accept analytics cookies']")
   element(:reject_analytics_cookies, "input[value='Reject analytics cookies']")
