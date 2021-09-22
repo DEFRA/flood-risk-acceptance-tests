@@ -4,7 +4,7 @@ Given(/^I am an individual$/) do
   # User type page
   expect(page).to have_content("individual")
   check_for_accessibility
-  @app.user_type_page.submit(org_type: "individual")
+  @app.user_type_page.submit(org_type: "soleTrader")
 
   # Organisation name page
   expect(page).to have_content("name?")
@@ -17,7 +17,7 @@ Given(/^I am an individual$/) do
   @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
-  expect(page).to have_content("I can’t find the address in the list")
+  expect(page).to have_content("I cannot find the address in the list")
   check_for_accessibility
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"

@@ -2,8 +2,7 @@
 
 class WithdrawRegistrationPage < BasePage
 
-  element(:comment, "#admin_enrollment_exemptions_withdraw_comment")
-  element(:submit_button, "input[name='commit']")
+  element(:comment, "#enrollment-exemption-comment-content-field")
 
   def submit(args = {})
     comment.set args[:comment] if args.key?(:comment)

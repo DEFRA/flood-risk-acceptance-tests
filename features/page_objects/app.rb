@@ -11,8 +11,8 @@ class App
 
   # FRONT OFFICE SPECIFIC PAGES
   # /
-  def front_office_home_page
-    @last_page = FrontOfficeHomePage.new
+  def start_page
+    @last_page = StartPage.new
   end
 
   # JOURNEY PAGES

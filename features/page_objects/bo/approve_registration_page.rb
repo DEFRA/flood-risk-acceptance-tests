@@ -2,11 +2,9 @@
 
 class ApproveRegistrationPage < BasePage
 
-  element(:asset_found, "#admin_enrollment_exemptions_approve_asset_found")
-  element(:salmonid_river, "#admin_enrollment_exemptions_approve_salmonid_river_found")
-  element(:comment, "#admin_enrollment_exemptions_approve_comment")
-
-  element(:submit_button, "input[name='commit']")
+  element(:asset_found, "#enrollment-exemption-asset-found-true-field", visible: false)
+  element(:salmonid_river, "#enrollment-exemption-salmonid-river-found-true-field", visible: false)
+  element(:comment, "#enrollment-exemption-comment-content-field")
 
   def submit(args = {})
     asset_found.click if args.key?(:asset_found) && args[:asset_found]

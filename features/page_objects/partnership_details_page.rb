@@ -2,7 +2,7 @@
 
 class PartnershipPage < BasePage
 
-  element(:add_partner_link, "a[href*='/partners/partnership/edit']")
+  element(:add_partner_link, "a[href$='/partner-name']")
 
   elements(:remove_links, "a[data-method='delete']")
 

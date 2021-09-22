@@ -7,7 +7,7 @@ Feature: The 'Check your answers' page
 
   Scenario: Simple individual registration
     Given I start a registration
-     When I select exemption FRA2 as a "individual"
+     When I select exemption FRA2 as a "soleTrader"
       And complete the remaining steps as an individual
      Then I will see all the details I entered as an individual
 

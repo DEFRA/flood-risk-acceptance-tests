@@ -2,9 +2,9 @@
 
 class GridReferencePage < BasePage
 
-  element(:grid_reference, "input#grid-reference-grid-reference-field")
-  element(:description, "textarea[name='grid_reference[description]']")
-  element(:dredging_length, "input#grid-reference-dredging-length-field")
+  element(:grid_reference, "input#site-grid-reference-form-temp-grid-reference-field")
+  element(:description, "#site-grid-reference-form-temp-site-description-field")
+  element(:dredging_length, "input#site-grid-reference-form-dredging-length-field")
 
   def submit(args = {})
     grid_reference.set(args[:grid_reference]) if args.key?(:grid_reference)

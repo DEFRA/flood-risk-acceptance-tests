@@ -2,8 +2,8 @@
 
 class InviteUserPage < BasePage
 
-  element(:email, "#user_email")
-  element(:results_dropdown, "select#user_assigned_role")
+  element(:email, "#user-email-field")
+  element(:results_dropdown, "select#user-assigned-role-field")
 
   def select_user_role(user)
     results_dropdown.select(user)

@@ -2,8 +2,8 @@
 
 require_relative "base_page"
 
-class FrontOfficeHomePage < BasePage
+class StartPage < BasePage
 
-  set_url("/enrollments/new")
+  set_url("/")
 
 end

@@ -42,7 +42,7 @@ def partnership_registration
   @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
-  expect(page).to have_content("I can’t find the address in the list")
+  expect(page).to have_content("I cannot find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
@@ -60,10 +60,11 @@ def partnership_registration
   # We can just click submit because the page pre-populates the postcode lookup
   # field with the previously entered postcode
   expect(page).to have_content("BS1 5AH")
-  @app.postcode_page.submit_button.click
+  # @app.postcode_page.submit_button.click
+  @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
-  expect(page).to have_content("I can’t find the address in the list")
+  expect(page).to have_content("I cannot find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )

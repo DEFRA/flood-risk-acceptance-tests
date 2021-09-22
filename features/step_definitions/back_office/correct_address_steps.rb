@@ -15,7 +15,7 @@ Given(/^I get to the check your answers page$/) do
   )
 
   # User type page
-  @app.user_type_page.submit(org_type: "individual")
+  @app.user_type_page.submit(org_type: "soleTrader")
 
   # Organisation name page
   @app.organisation_name_page.submit(org_name: "Tina Turner")
@@ -24,7 +24,7 @@ Given(/^I get to the check your answers page$/) do
   @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
-  expect(page).to have_content("I can’t find the address in the list")
+  expect(page).to have_content("I cannot find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
@@ -54,19 +54,15 @@ Given(/^I get to the check your answers page$/) do
     confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"]
   )
 
-  expect(@app.check_your_answers_page.current_url).to end_with "/steps/check_your_answers"
+  expect(@app.check_your_answers_page.current_url).to end_with "/check-your-answers"
 end
 
 And(/^The user wishes to correct their address$/) do
-
   @app.check_your_answers_page.back_link.click
   @app.email_someone_else_page.back_link.click
   @app.correspondence_contact_email_page.back_link.click
   @app.correspondence_contact_telephone_page.back_link.click
   @app.correspondence_contact_name_page.back_link.click
-
-  expect(@app.address_page.current_url).to end_with "_address"
-
 end
 
 When(/^I enter the address manually and complete the registration$/) do

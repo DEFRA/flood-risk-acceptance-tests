@@ -4,7 +4,7 @@ class CorrespondenceContactTelephonePage < BasePage
 
   element(
     :telephone_number,
-    "input[name='correspondence_contact_telephone[telephone_number]']"
+    "#contact-phone-form-contact-phone-field"
   )
 
   def submit(args = {})
