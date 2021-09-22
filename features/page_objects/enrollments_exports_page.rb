@@ -11,7 +11,6 @@ class EnrollmentExportsPage < BasePage
   element(:to_month, "#enrollment_export_to_date_2i")
   element(:to_year, "#enrollment_export_to_date_1i")
 
-
   element(:refresh, ".govuk-body a[href='/admin/enrollment_exports']")
 
   element(:latest_export_file, ".enrollment_export:first-of-type a")
