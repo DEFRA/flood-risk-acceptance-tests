@@ -136,7 +136,6 @@ And(/^add "([^"]*)" as the last partner$/) do |name|
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
   )
-
   # Partnership details page
   # The continue button should now be visible
   expect(@app.partnership_details_page).to have_content("Business partners you’ve added to this registration")
@@ -145,17 +144,7 @@ And(/^add "([^"]*)" as the last partner$/) do |name|
 end
 
 But(/^then remove "([^"]*)" from the partners list$/) do |name|
-
-  # Capybara now has built in support for accepting dialog boxes (without
-  # needing to extra driver specific code or explicit waits). Simply wrap the
-  # code which causes the dialog with page.accept_confirm. In essence you are
-  # passing the code which causes the dialog to appear as a block to the method.
-  # http://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession%3Aaccept_confirm
-  # http://stackoverflow.com/a/26348968/6117745
-  page.accept_alert do
-    @app.partnership_details_page.remove_link(name).click
-  end
-
+  @app.partnership_details_page.remove_link(name).click
 end
 
 Then(/^I will just see the remaining 2 partners$/) do
