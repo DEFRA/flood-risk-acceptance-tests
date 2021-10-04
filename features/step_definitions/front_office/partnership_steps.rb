@@ -150,8 +150,13 @@ But(/^then remove "([^"]*)" from the partners list$/) do |name|
   # passing the code which causes the dialog to appear as a block to the method.
   # http://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession%3Aaccept_confirm
   # http://stackoverflow.com/a/26348968/6117745
-  page.accept_alert do
+  # Modal seems to be closed automatically for iphones so no need to wrap in the page accept alert method
+  if ARGV.any? { |word| word.include?("@iphone") }
     @app.partnership_details_page.remove_link(name).click
+  else
+    page.accept_alert do
+      @app.partnership_details_page.remove_link(name).click
+    end
   end
 end
 
