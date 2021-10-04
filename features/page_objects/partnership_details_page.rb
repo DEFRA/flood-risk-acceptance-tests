@@ -4,7 +4,7 @@ class PartnershipPage < BasePage
 
   element(:add_partner_link, "a[href$='/partner-name']")
 
-  elements(:remove_links, "a[data-method='delete']")
+  elements(:remove_links, "a[data-confirm^='Are you sure']")
 
   # Find a remove link by checking the data-confirm attribute for a matching
   # name.
