@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-class CorrespondenceContactNamePage < SitePrism::Page
+class CorrespondenceContactNamePage < BasePage
 
-  element(:back_link, ".back-link")
-
-  element(:full_name, "input[name='correspondence_contact_name[full_name]']")
-  element(:position, "input[name='correspondence_contact_name[position]']")
-
-  element(:submit_button, "input[name='commit']")
+  element(:full_name, "#contact-name-form-contact-name-field")
+  element(:position, "#contact-name-form-contact-position-field")
 
   def submit(args = {})
     full_name.set(args[:full_name]) if args.key?(:full_name)

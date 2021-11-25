@@ -1,30 +1,16 @@
 # frozen_string_literal: true
 
-Given(/^I am an external user$/) do
-
+Given("I start a registration") do
   @app = App.new
-  @app.front_office_home_page.load
-
-end
-
-Given(/^I am an internal user$/) do
-
-  @app = App.new
-  @app.login_page.load
-
-end
-
-Given(/^I am an unknown user$/) do
-
-  @app = App.new
-  visit(Quke::Quke.config.custom["urls"]["back_office"])
-
+  @app.start_page.load
+  @app.start_page.accept_cookies
+  @app.start_page.submit_button.click
 end
 
 Given(/^I register exemption FRA(\d+)$/) do |code|
   expect(@app.add_exemption_page).to have_content("Select the exemption you want to register")
   check_for_accessibility
-  @app.add_exemption_page.submit(exemption: "FRA#{code}")
+  @app.add_exemption_page.submit(exemption: (code - 1))
 
   expect(@app.check_exemptions_page).to have_content("FRA#{code}")
   expect(@app.check_exemptions_page).to have_content("Confirm your exemption")
@@ -40,8 +26,7 @@ Given(/^I register exemption FRA(\d+)$/) do |code|
 end
 
 Given(/^I select exemption FRA(\d+)$/) do |code|
-
-  @app.add_exemption_page.submit(exemption: "FRA#{code}")
+  @app.add_exemption_page.submit(exemption: (code - 1))
 
   expect(page).to have_content("FRA#{code}")
 
@@ -50,7 +35,8 @@ end
 When(/^I select exemption FRA(\d+) as a "([^"]*)"$/) do |code, org_type|
 
   # Add exemption page
-  @app.add_exemption_page.submit(exemption: "FRA#{code}")
+  expect(page).to have_content("Select the exemption you want to register")
+  @app.add_exemption_page.submit(exemption: (code - 1))
 
   # Check exemptions page
   expect(page).to have_content("FRA#{code}")
@@ -102,8 +88,7 @@ Given(/^I then opt to change FRA(\d+)$/) do |code|
   # We can get away with just selecting the first link because currently you can
   # only select one exemption so there will only ever be one link
   @app.check_exemptions_page.remove_links.first.click
-
-  expect(@app.add_exemption_page.exemption_checked?("FRA#{code}")).to be false
+  expect(@app.add_exemption_page.exemption_checked?(code - 1)).to be true
 
 end
 
@@ -112,7 +97,7 @@ Then(/^I will be taken back to the add exemptions page$/) do
 end
 
 When(/^I confirm my registration$/) do
-  expect(page).to have_content("Declaration")
+  expect(page).to have_content("Use of your information and privacy")
   @app.declaration_page.submit
 end
 
@@ -144,4 +129,8 @@ And(/^give "([^"]*)" as the contact$/) do |name|
   expect(@app.email_someone_else_page).to have_content("confirmation email")
   @app.email_someone_else_page.submit_button.click
 
+end
+
+Then("I complete a partnership registration") do
+  partnership_registration
 end

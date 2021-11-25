@@ -3,10 +3,10 @@
 And(/^complete the remaining steps as an individual$/) do
 
   # Organisation name page
-  @app.organisation_name_page.submit(individual_name: "Napoleon Solo")
+  @app.organisation_name_page.submit(org_name: "Napoleon Solo")
 
   # Postcode page
-  @app.postcode_page.submit(individual_postcode: "S60 1BY")
+  @app.postcode_page.submit(postcode: "S60 1BY")
 
   # Address page - select address from post code lookup list
   @app.address_page.submit(
@@ -52,18 +52,18 @@ Then(/^I will see all the details I entered as an individual$/) do
 
 end
 
+# rubocop:disable Layout/LineLength
 Then(/^I will see all the details I entered as a partnership$/) do
-
   # Check your answers page
   expect(page).to have_content "Electrical cable service crossing over a main river"
   expect(page).to have_content "ST 58132 72695"
   expect(page).to have_content "Location of activity"
   expect(page).to have_content "Partnership"
-  expect(page).to have_content "Steve Rogers, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
-  expect(page).to have_content "Bruce Banner, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
-  expect(page).to have_content "Tony Stark, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
+  expect(page).to have_content "Steve Rogers, ENVIRONMENT AGENCY, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
+  expect(page).to have_content "Bruce Banner, ENVIRONMENT AGENCY, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
+  expect(page).to have_content "Tony Stark, ENVIRONMENT AGENCY, GHYLL MOUNT, GILLAN WAY, PENRITH 40 BUSINESS PARK, PENRITH, CA11 9BP"
   expect(page).to have_content "Nick Fury (Project Manager)"
   expect(page).to have_content "01234567899"
   # email address removed as this currently changes by environment
-
+  # rubocop:enable Layout/LineLength
 end

@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-class DeclarationPage < SitePrism::Page
-
-  element(:declaration_button, "input[name='commit']")
+class DeclarationPage < BasePage
 
   def submit
-    declaration_button.click
+    scroll_to(submit_button)
+    submit_button.click
   end
 end

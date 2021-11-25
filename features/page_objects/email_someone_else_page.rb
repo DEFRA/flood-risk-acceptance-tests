@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-class EmailSomeoneElsePage < SitePrism::Page
+class EmailSomeoneElsePage < BasePage
 
-  element(:back_link, ".back-link")
-
-  element(:email, "input#email_someone_else_email_address")
-  element(:confirm_email, "input#email_someone_else_email_address_confirmation")
-
-  element(:submit_button, "input[name='commit']")
+  element(:email, "input#additional-contact-email-form-additional-contact-email-field")
+  element(:confirm_email, "input#additional-contact-email-form-confirmed-email-field")
 
   def submit(args = {})
     email.set(args[:email]) if args.key?(:email)

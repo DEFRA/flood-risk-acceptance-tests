@@ -2,12 +2,7 @@
 
 When(/^I register a flood risk activity exemption for a customer$/) do
 
-  @app.search_page.nav_bar.registrations_menu.click
-  @app.search_page.nav_bar.new_option.click
-
-  @app.add_exemption_page.submit(
-    exemption: "FRA2"
-  )
+  @app.add_exemption_page.submit(exemption: 1)
 
   expect(page).to have_content("FRA2")
   expect(page).to have_content("Confirm your exemption")
@@ -20,16 +15,16 @@ When(/^I register a flood risk activity exemption for a customer$/) do
   )
 
   # User type page
-  @app.user_type_page.submit(org_type: "individual")
+  @app.user_type_page.submit(org_type: "soleTrader")
 
   # Organisation name page
-  @app.organisation_name_page.submit(individual_name: "Tina Turner")
+  @app.organisation_name_page.submit(org_name: "Tina Turner")
 
   # Postcode page
-  @app.postcode_page.submit(individual_postcode: "BS1 5AH")
+  @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
-  expect(page).to have_content("I can’t find the address in the list")
+  expect(page).to have_content("I cannot find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
@@ -63,14 +58,19 @@ When(/^I register a flood risk activity exemption for a customer$/) do
   expect(@app.check_your_answers_page).to have_content("Check your answers")
   @app.check_your_answers_page.submit
 
-  @app.declaration_page.declaration_button.click
+  @app.declaration_page.submit
 
-  @exemption_number = @app.confirmation_page.exemption_number.text
+  @registration_number = @app.confirmation_page.registration_number.text
 end
 
 Then(/^I will see confirmation the registration has been submitted$/) do
 
   expect(page).to have_content "Registration submitted"
+end
+
+Given("I start a new registration") do
+  @app.search_page.nav_bar.new_option.click
+  @app.start_page.submit_button.click
 end
 
 Then(/^I will see the registration is "([^"]*)"$/) do |action|
@@ -80,7 +80,6 @@ Then(/^I will see the registration is "([^"]*)"$/) do |action|
 end
 
 When(/^I export registrations for today$/) do
-  @app.search_page.nav_bar.registrations_menu.click
   @app.search_page.nav_bar.export_option.click
 
   # finds today's date and saves them for use in export from date
@@ -88,7 +87,7 @@ When(/^I export registrations for today$/) do
   time = Time.new
 
   @year = time.year
-  @month = time.strftime("%B")
+  @month = time.strftime("%m")
   @day = time.day
 
   @app.enrollment_exports_page.submit(

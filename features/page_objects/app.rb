@@ -3,15 +3,16 @@
 # Represents all pages in the application. Was created to avoid needing to
 # create individual instances of each page throughout the steps.
 # https://github.com/natritmeyer/site_prism#epilogue
+
 class App
 
   # Using an attr_reader automatically gives us a my_app.last_page method
-  attr_reader :last_page
+  attr_reader :last_page, :base_page
 
   # FRONT OFFICE SPECIFIC PAGES
   # /
-  def front_office_home_page
-    @last_page = FrontOfficeHomePage.new
+  def start_page
+    @last_page = StartPage.new
   end
 
   # JOURNEY PAGES
@@ -136,6 +137,14 @@ class App
   # admin/enrollment_exports
   def enrollment_exports_page
     @last_page = EnrollmentExportsPage.new
+  end
+
+  def users_page
+    @last_page = UsersPage.new
+  end
+
+  def invite_user_page
+    @last_page = InviteUserPage.new
   end
 
 end

@@ -2,16 +2,16 @@
 
 Given(/^I am a charity$/) do
   # User type page
-  @app.user_type_page.submit(org_type: "other")
+  @app.user_type_page.submit(org_type: "charity")
 
   # Organisation name page
-  @app.organisation_name_page.submit(other_name: "Save The Biscuits")
+  @app.organisation_name_page.submit(org_name: "Save The Biscuits")
 
   # Postcode page
-  @app.postcode_page.submit(other_postcode: "BS1 5AH")
+  @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
-  expect(page).to have_content("I can’t find the address in the list")
+  expect(page).to have_content("I cannot find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )

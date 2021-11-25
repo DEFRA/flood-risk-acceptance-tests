@@ -2,16 +2,16 @@
 
 Given(/^I am a local authority$/) do
   # User type page
-  @app.user_type_page.submit(org_type: "local_authority")
+  @app.user_type_page.submit(org_type: "localAuthority")
 
   # Organisation name page
-  @app.organisation_name_page.submit(local_authority_name: "Testminster council")
+  @app.organisation_name_page.submit(org_name: "Testminster council")
 
   # Postcode page
-  @app.postcode_page.submit(local_authority_postcode: "BS1 5AH")
+  @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
-  expect(page).to have_content("I can’t find the address in the list")
+  expect(page).to have_content("I cannot find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )

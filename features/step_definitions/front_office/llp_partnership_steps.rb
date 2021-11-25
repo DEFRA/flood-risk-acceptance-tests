@@ -2,19 +2,19 @@
 
 Given(/^I am a limited liability partnership$/) do
   # User type page
-  @app.user_type_page.submit(org_type: "limited_liability_partnership")
+  @app.user_type_page.submit(org_type: "limitedLiabilityPartnership")
 
   # Limited company number page
-  @app.registration_number_page.submit(llp_reg_number: "12345678")
+  @app.registration_number_page.submit(reg_number: "12345678")
 
   # Organisation name page
-  @app.organisation_name_page.submit(llp_name: "LLP R US")
+  @app.organisation_name_page.submit(org_name: "LLP R US")
 
   # Postcode page
-  @app.postcode_page.submit(llp_postcode: "BS1 5AH")
+  @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
-  expect(page).to have_content("I can’t find the address in the list")
+  expect(page).to have_content("I cannot find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )

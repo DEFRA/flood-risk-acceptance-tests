@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
 Given(/^I get to the check your answers page$/) do
-  @app.search_page.nav_bar.registrations_menu.click
-  @app.search_page.nav_bar.new_option.click
 
-  @app.add_exemption_page.submit(
-    exemption: "FRA2"
-  )
+  @app.add_exemption_page.submit(exemption: 1)
 
   expect(page).to have_content("FRA2")
   expect(page).to have_content("Confirm your exemption")
@@ -19,16 +15,16 @@ Given(/^I get to the check your answers page$/) do
   )
 
   # User type page
-  @app.user_type_page.submit(org_type: "individual")
+  @app.user_type_page.submit(org_type: "soleTrader")
 
   # Organisation name page
-  @app.organisation_name_page.submit(individual_name: "Tina Turner")
+  @app.organisation_name_page.submit(org_name: "Tina Turner")
 
   # Postcode page
-  @app.postcode_page.submit(individual_postcode: "BS1 5AH")
+  @app.postcode_page.submit(postcode: "BS1 5AH")
 
   # Address page - select address from post code lookup list
-  expect(page).to have_content("I can’t find the address in the list")
+  expect(page).to have_content("I cannot find the address in the list")
   @app.address_page.submit(
     result: "ENVIRONMENT AGENCY, HORIZON HOUSE, DEANERY ROAD, BRISTOL, BS1 5AH"
   )
@@ -58,19 +54,15 @@ Given(/^I get to the check your answers page$/) do
     confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"]
   )
 
-  expect(@app.check_your_answers_page.current_url).to end_with "/steps/check_your_answers"
+  expect(@app.check_your_answers_page.current_url).to end_with "/check-your-answers"
 end
 
 And(/^The user wishes to correct their address$/) do
-
   @app.check_your_answers_page.back_link.click
   @app.email_someone_else_page.back_link.click
   @app.correspondence_contact_email_page.back_link.click
   @app.correspondence_contact_telephone_page.back_link.click
   @app.correspondence_contact_name_page.back_link.click
-
-  expect(@app.address_page.current_url).to end_with "_address"
-
 end
 
 When(/^I enter the address manually and complete the registration$/) do
@@ -94,11 +86,11 @@ When(/^I enter the address manually and complete the registration$/) do
   expect(@app.check_your_answers_page).to have_content("Check your answers")
   @app.check_your_answers_page.submit
 
-  @app.declaration_page.declaration_button.click
+  @app.declaration_page.submit
 
-  @exemption_number = @app.confirmation_page.exemption_number.text
+  @registration_number = @app.confirmation_page.registration_number.text
 
-  expect(@exemption_number).to start_with "EXFRA"
+  expect(@registration_number).to start_with "EXFRA"
 
 end
 
@@ -106,9 +98,7 @@ Then(/^I should see just one result when searching for the registration$/) do
 
   # search page
   @app.search_page.nav_bar.home_link.click
-  @app.search_page.search_field.set @exemption_number
-  @app.search_page.search_button.click
-
-  expect(@app.search_page.search_results_view_btns.size).to eq(1)
+  @app.search_page.submit(search_value: @registration_number)
+  expect(@app.search_page.search_results_status.size).to eq(1)
 
 end

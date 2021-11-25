@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-class PartnershipPage < SitePrism::Page
+class PartnershipPage < BasePage
 
-  element(:add_partner_link, "a[href*='/partners/partnership/edit']")
+  element(:add_partner_link, "a[href$='/partner-name']")
 
-  element(:submit_button, "input[name='commit']")
-
-  elements(:remove_links, "a[data-method='delete']")
+  elements(:remove_links, "a[data-confirm^='Are you sure']")
 
   # Find a remove link by checking the data-confirm attribute for a matching
   # name.

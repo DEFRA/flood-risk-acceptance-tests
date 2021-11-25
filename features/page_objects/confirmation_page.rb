@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class ConfirmationPage < SitePrism::Page
-
-  element(:exemption_number, ".govuk-box-highlight .heading-medium")
+class ConfirmationPage < BasePage
+  # TODO: update selector
+  element(:registration_number, "div strong")
 
 end

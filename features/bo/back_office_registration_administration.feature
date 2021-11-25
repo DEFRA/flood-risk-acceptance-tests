@@ -5,8 +5,8 @@ Feature: NCCC user administers a flood risk activity exemptions on behalf of a c
   So that I can mark each activity exemptions state before or after internal screening
 
   Background:
-  	Given I am an internal user
-  	And I have a valid username and password
+  	Given I have signed in as "super_agent@frae.gov.uk"
+   And I start a new registration
   	And I register a flood risk activity exemption for a customer
 
   @smoke
