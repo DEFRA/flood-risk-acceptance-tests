@@ -12,7 +12,7 @@ driver: chrome
 # Let Quke know you want to run the browser in headless mode. Headless mode
 # means the browser still runs but you won't see it displayed. The benefit is
 # that your tests will take less time as it's less resource intensive.
-headless: false
+headless: true
 
 # Add a pause (in seconds) between steps so you can visually track how the
 # browser is responding. Only useful if using a non-headless browser. The
