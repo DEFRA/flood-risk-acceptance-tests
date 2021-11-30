@@ -87,7 +87,7 @@ bundle exec quke --tags ~@functional # Don't run anything with this tag (run eve
 
 ### In this project
 
-To have consistency across the project the following tags are defined and should be used in the following ways
+To have consistency across the project the following tags are defined and should be used in the following ways:
 
 |Tag|Description|
 |---|---|
