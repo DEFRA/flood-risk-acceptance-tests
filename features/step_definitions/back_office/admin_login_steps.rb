@@ -8,6 +8,5 @@ Given(/^I have signed in as "([^"]*)"$/) do |user|
     email: user, # this comes from your local machine
     password: ENV["FRAE_DEFAULT_PASSWORD"]
   )
-
   expect(@app.search_page.notification).to have_content("successfully signed in")
 end
