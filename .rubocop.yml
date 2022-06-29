@@ -11,5 +11,5 @@ Metrics/BlockLength:
   Exclude:
     - "features/step_definitions/**/*"
 
-Layout/BlockAlignment:
-  Enabled: false
+AllCops:
+    SuggestExtensions: false

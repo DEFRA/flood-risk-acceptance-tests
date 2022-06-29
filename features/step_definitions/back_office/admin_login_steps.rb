@@ -6,7 +6,7 @@ Given(/^I have signed in as "([^"]*)"$/) do |user|
   # Back office login page
   @app.login_page.submit(
     email: user, # this comes from your local machine
-    password: ENV["FRAE_DEFAULT_PASSWORD"]
+    password: ENV.fetch("FRAE_DEFAULT_PASSWORD", nil)
   )
   expect(@app.search_page.notification).to have_content("successfully signed in")
 end
