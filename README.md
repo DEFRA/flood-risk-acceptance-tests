@@ -10,7 +10,7 @@ This project contains the acceptance tests for the service. It is built around [
 
 ## Pre-requisites
 
-This project is setup to run against version 2.7.1 of Ruby.
+This project is setup to run against version 3.1.2 of Ruby.
 
 The rest of the pre-requisites are the same as those for [Quke](https://github.com/DEFRA/quke#pre-requisites).
 
