@@ -2,7 +2,7 @@
 
 class SearchPage < BasePage
   section(:nav_bar, AdminNavBarSection, ".govuk-header__container")
-  element(:search_field, "input#search-q-field")
+  element(:search_field, "input#search")
   element(:search_status_dropdown, "select#search_status")
 
   element(:search, "button[type='submit']")
