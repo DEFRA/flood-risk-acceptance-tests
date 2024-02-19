@@ -19,7 +19,7 @@ class BasePage < SitePrism::Page
 
   def accept_cookies
     return unless has_text? "Accept analytics cookies"
-    
+
     click_button "Accept analytics cookies"
     click_button "Hide this message"
   end
