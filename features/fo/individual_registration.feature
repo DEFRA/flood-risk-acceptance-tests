@@ -1,7 +1,7 @@
 @frontoffice 
 Feature: Individual registers a flood risk activity exemption
   As an individual
-  I want to register a location for a flood risk activity exemptions
+  I want to register a location for a flood risk activity exemption
   So that I can check that my activity does not harm the environment in that area
 
   @happy_path
