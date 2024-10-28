@@ -1,5 +1,5 @@
 @backoffice
-Feature: NCCC user administers a flood risk activity exemptions on behalf of a customer
+Feature: NCCC user administers a flood risk activity exemption on behalf of a customer
   As a member of NCCC
   I want to administer flood risk activity exemption activities
   So that I can mark each activity exemptions state before or after internal screening
