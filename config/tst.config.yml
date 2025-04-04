@@ -3,7 +3,7 @@
 # will be by simply setting `app_host`. You can then use it directly using
 # Capybara `visit('/Main_Page')` or `visit('/')` rather than having to repeat
 # the full url each time
-app_host: 'https://fra-tst.aws.defra.cloud'
+app_host: 'https://fra-tst.aws-int.defra.cloud'
 
 # Tells Quke which browser to use for testing. Choices are firefox, chrome, and
 # browserstack, with the default being chrome
@@ -12,7 +12,7 @@ driver: chrome
 # Let Quke know you want to run the browser in headless mode. Headless mode
 # means the browser still runs but you won't see it displayed. The benefit is
 # that your tests will take less time as it's less resource intensive.
-headless: false
+headless: true
 
 # Add a pause (in seconds) between steps so you can visually track how the
 # browser is responding. Only useful if using a non-headless browser. The
@@ -65,5 +65,5 @@ custom:
       username2: applicant2@example.com
       password: Abcde12345
   urls:
-    front_office: "https://fra-tst.aws.defra.cloud"
-    back_office: "https://fra-admin-tst.aws.defra.cloud"
+    front_office: "https://fra-tst.aws-int.defra.cloud"
+    back_office: "https://fra-admin-tst.aws-int.defra.cloud"

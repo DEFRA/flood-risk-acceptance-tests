@@ -3,7 +3,7 @@
 # will be by simply setting `app_host`. You can then use it directly using
 # Capybara `visit('/Main_Page')` or `visit('/')` rather than having to repeat
 # the full url each time
-app_host: 'https://fra-dev.aws.defra.cloud'
+app_host: 'https://fra-dev.aws-int.defra.cloud'
 
 # Tells Quke which browser to use for testing. Choices are firefox, chrome, and
 # browserstack, with the default being chrome
@@ -61,9 +61,9 @@ print_progress: false
 custom:
   accounts:
     SystemUser:
-      username: applicant1@example.com
+      username: super_agent@frae.gov.uk
       username2: applicant2@example.com
-      password: Abcde12345
+      password: Secret123
   urls:
-    front_office: "https://fra-dev.aws.defra.cloud"
-    back_office: "https://fra-admin-dev.aws.defra.cloud"
+    front_office: "https://wex-dev.aws-int.defra.cloud"
+    back_office: "https://fra-admin-dev.aws-int.defra.cloud"
