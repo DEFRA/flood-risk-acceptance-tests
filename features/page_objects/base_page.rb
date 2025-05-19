@@ -8,10 +8,10 @@ class BasePage < SitePrism::Page
   element(:content, "#main-content")
   element(:submit_button, "[type='submit']")
   element(:button, ".govuk-button")
-  element(:accept_analytics_cookies, "input[value='Accept analytics cookies']")
-  element(:reject_analytics_cookies, "input[value='Reject analytics cookies']")
+  element(:accept_analytics_cookies, "[action='/cookies/accept_analytics']")
+  element(:reject_analytics_cookies, "[action='/cookies/reject_analytics']")
 
-  element(:hide_cookie_banner, "input[value='Hide this message']")
+  element(:hide_cookie_banner, "[action='/cookies/hide_this_message']")
 
   def submit(_args = {})
     submit_button.click
