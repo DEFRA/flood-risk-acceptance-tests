@@ -5,7 +5,7 @@ Given(/^I am a limited company$/) do
   @app.user_type_page.submit(org_type: "limitedCompany")
 
   # Limited company number page
-  @app.registration_number_page.submit(reg_number: "12345678")
+  @app.registration_number_page.submit(reg_number: "10336040")
 
   # Organisation name page
   @app.organisation_name_page.submit(org_name: "Too unlimited")
