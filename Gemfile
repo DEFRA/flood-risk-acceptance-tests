@@ -13,4 +13,5 @@ gem "rake"
 # Pin to below v3 to avoid pulling in the companies house gem
 gem "defra_ruby_validators", "~> 2.7"
 
-gem "matrix", "~> 0.4.2"
+gem "defra_ruby_style"gem "matrix", "~> 0.4.2"
+
