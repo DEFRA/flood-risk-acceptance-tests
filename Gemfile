@@ -10,8 +10,8 @@ gem "quke",
 # with quke.
 gem "rake"
 
-# Gem used by the Defra ruby services team to ensure a consistent style across
-# our code base
-gem "defra_ruby_style"
+# Pin to below v3 to avoid pulling in the companies house gem
+gem "defra_ruby_validators", "~> 2.7"
 
+gem "defra_ruby_style"
 gem "matrix", "~> 0.4.2"

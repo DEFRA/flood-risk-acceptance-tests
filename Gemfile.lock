@@ -15,11 +15,28 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (8.0.2)
+      activesupport (= 8.0.2)
+    activesupport (8.0.2)
+      base64
+      benchmark (>= 0.3)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.3.1)
+      connection_pool (>= 2.2.5)
+      drb
+      i18n (>= 1.6, < 2)
+      logger (>= 1.4.2)
+      minitest (>= 5.1)
+      securerandom (>= 0.3)
+      tzinfo (~> 2.0, >= 2.0.5)
+      uri (>= 0.13.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.3)
     backports (3.25.1)
     base64 (0.2.0)
+    benchmark (0.4.0)
+    bigdecimal (3.1.9)
     browserstack-local (1.4.3)
     builder (3.3.0)
     capybara (3.40.0)
@@ -31,6 +48,8 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    concurrent-ruby (1.3.5)
+    connection_pool (2.5.3)
     cucumber (3.2.0)
       builder (>= 2.1.2)
       cucumber-core (~> 3.2.0)
@@ -52,8 +71,24 @@ GEM
       rubocop-factory_bot
       rubocop-rake
       rubocop-rspec
+    defra_ruby_validators (2.7.2)
+      activemodel
+      i18n
+      matrix
+      os_map_ref
+      phonelib
+      rest-client (~> 2.0)
+      uk_postcode
+      validates_email_format_of
     diff-lcs (1.6.2)
+    domain_name (0.6.20240107)
+    drb (2.2.1)
     gherkin (5.1.0)
+    http-accept (1.7.0)
+    http-cookie (1.0.8)
+      domain_name (~> 0.5)
+    i18n (1.14.7)
+      concurrent-ruby (~> 1.0)
     json (2.12.0)
     language_server-protocol (3.17.0.5)
     launchy (2.5.2)
@@ -61,17 +96,25 @@ GEM
     lint_roller (1.1.0)
     logger (1.7.0)
     matrix (0.4.2)
+    mime-types (3.7.0)
+      logger
+      mime-types-data (~> 3.2025, >= 3.2025.0507)
+    mime-types-data (3.2025.0514)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
+    minitest (5.25.5)
     multi_json (1.15.0)
     multi_test (1.1.0)
-    nokogiri (1.18.8)
-      mini_portile2 (~> 2.8.2)
+    netrc (0.11.0)
+    nokogiri (1.18.8-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-linux-gnu)
+      racc (~> 1.4)
+    os_map_ref (0.5.0)
     parallel (1.27.0)
     parser (3.3.8.0)
       ast (~> 2.4.1)
       racc
+    phonelib (0.10.9)
     prism (1.4.0)
     public_suffix (6.0.2)
     racc (1.8.1)
@@ -81,6 +124,11 @@ GEM
     rainbow (3.1.1)
     rake (13.2.1)
     regexp_parser (2.10.0)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rexml (3.4.1)
     rspec-expectations (3.13.4)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -111,20 +159,29 @@ GEM
       rubocop (~> 1.72, >= 1.72.1)
     ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
+    securerandom (0.4.1)
     selenium-webdriver (4.32.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simpleidn (0.2.3)
     site_prism (3.7.3)
       addressable (~> 2.6)
       capybara (~> 3.15)
       site_prism-all_there (>= 0.3.1, < 1.0)
     site_prism-all_there (0.3.2)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+    uk_postcode (2.1.8)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
+    uri (1.0.3)
+    validates_email_format_of (1.8.2)
+      i18n (>= 0.8.0)
+      simpleidn
     websocket (1.2.11)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -134,9 +191,10 @@ PLATFORMS
 
 DEPENDENCIES
   defra_ruby_style
+  defra_ruby_validators (~> 2.7)
   matrix (~> 0.4.2)
   quke!
   rake
 
 BUNDLED WITH
-   2.4.10
+   2.3.16
