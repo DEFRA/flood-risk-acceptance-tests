@@ -95,7 +95,7 @@ GEM
       addressable (~> 2.8)
     lint_roller (1.1.0)
     logger (1.7.0)
-    matrix (0.4.2)
+    matrix (0.4.3)
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
