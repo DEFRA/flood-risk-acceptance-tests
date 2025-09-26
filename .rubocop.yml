@@ -3,6 +3,11 @@ inherit_gem:
   defra_ruby_style:
     - default.yml
 
+plugins:
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-factory_bot
+
 # Our steps are not traditional code blocks and as such rules about there
 # length we don't feel apply. They are a step in a feature and as we want
 # the features to be meaningful, the last thing we want to do is start breaking

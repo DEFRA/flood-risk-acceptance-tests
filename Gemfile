@@ -15,3 +15,8 @@ gem "defra_ruby_validators", "~> 2.7"
 
 gem "defra_ruby_style"
 gem "matrix", "~> 0.4.2"
+gem "rubocop-rake"
+
+gem "rubocop-rspec"
+
+gem "rubocop-factory_bot"
