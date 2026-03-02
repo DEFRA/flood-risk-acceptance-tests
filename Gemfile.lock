@@ -175,6 +175,7 @@ GEM
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
     uri (1.0.3)
+    uri (1.0.4)
     validates_email_format_of (1.8.2)
       i18n (>= 0.8.0)
       simpleidn
