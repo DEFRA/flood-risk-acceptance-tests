@@ -53,8 +53,8 @@ Given(/^I get to the check your answers page$/) do
     email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"],
     confirm_email: Quke::Quke.config.custom["accounts"]["SystemUser"]["username2"]
   )
+  @app.check_your_answers_page.wait_until_submit_button_visible
 
-  expect(@app.check_your_answers_page.current_url).to end_with "/check-your-answers"
 end
 
 And(/^The user wishes to correct their address$/) do
