@@ -84,7 +84,7 @@ When(/^I export registrations for today$/) do
 
   # finds today's date and saves them for use in export from date
   # 'To' date defaults to today's date is isn't required
-  time = Time.new
+  time = Time.now
 
   @year = time.year
   @month = time.strftime("%m")

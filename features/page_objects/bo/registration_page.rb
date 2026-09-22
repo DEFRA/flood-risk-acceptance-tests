@@ -29,7 +29,7 @@ class RegistrationPage < BasePage
 
   private
 
-  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable-next Metrics/CyclomaticComplexity
   def click_button(action)
     case action
     when :edit_registration
@@ -48,6 +48,5 @@ class RegistrationPage < BasePage
       change_ad_classification_btn.click
     end
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
 end
