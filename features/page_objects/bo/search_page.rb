@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SearchPage < BasePage
-  section(:nav_bar, AdminNavBarSection, ".govuk-header__container")
+  section(:nav_bar, AdminNavBarSection, ".govuk-service-navigation__container")
   element(:search_field, "input#search")
   element(:search_status_dropdown, "select#search_status")
 

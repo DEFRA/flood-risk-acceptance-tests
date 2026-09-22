@@ -17,7 +17,7 @@ class EnrollmentExportsPage < BasePage
 
   element(:latest_export_status, ".enrollment_export:first-of-type span")
 
-  section(:nav_bar, AdminNavBarSection, ".govuk-header__container")
+  section(:nav_bar, AdminNavBarSection, ".govuk-service-navigation__container")
 
   def submit(args = {})
     from_day.set(args[:from_day]) if args.key?(:from_day)
